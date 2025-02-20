@@ -21,27 +21,22 @@ def f_net_newfolder():
     print(f"\nRun id: {TIME_ID}")
     print(f"\nStart time: {START_TIME}")
     print("\n-----------------------------------------------")
-    #"D:\\Academic\\Thesis\\Modeling\\Networks\\Code"
+
+    # Adding \.. to the end of the path. so abspath is the parrent folder
+
+    # D:\Academic\Research\BrainSyncMaster\010-Networks\Code
     CODE_DIR = os.path.dirname(os.path.realpath(__file__))
-    print(CODE_DIR)
-    print(os.listdir())
-    print('test_directory' in os.listdir())
-    par_dir = os.path.abspath(os.path.join(CODE_DIR, os.pardir))
-    print(par_dir)
+    # D:\Academic\Research\BrainSyncMaster\010-Networks
+    PARENT_DIR = os.path.abspath(CODE_DIR+"\\..")
+    # D:\Academic\Research\BrainSyncMaster\
+    PROJECT_DIR = os.path.abspath(CODE_DIR+"\\..\\..")
+    # D:\Academic\Research\BrainSyncMaster\010-Networks\DATASETS\
+    DATASETS_DIR = PARENT_DIR + "\\DATASETS\\"
+    # D:\Academic\Research\BrainSyncMaster\Outputs\
+    dest_dir = PROJECT_DIR + "\\Outputs\\"
 
-    #"D:\\Academic\\Thesis\\Modeling\\Networks"
-
-    par_dir = os.path.abspath(os.path.join(CODE_DIR, os.pardir))
-    #"D:\\Academic\\Thesis\\Modeling\\Networks\\Result"
-    # DEST_DIR = par_dir + "\\Result" 
-    DATASETS_DIR = par_dir + "\\DATASETS\\"
-    DEST_DIR = par_dir
-    print(CODE_DIR)
-    print(DATASETS_DIR)
-    print(DEST_DIR)
-    
     # Creat new folder (How many runs have been ran)
-    L_pre_runs = list(filter(re.compile("Net ").match, os.listdir(DEST_DIR)))
+    L_pre_runs = list(filter(re.compile("Net ").match, os.listdir(dest_dir)))
 
     if len(L_pre_runs) != 0:
         # finding max run number
@@ -59,11 +54,11 @@ def f_net_newfolder():
         RUN_NUMBER = f'Net 00{RUN_NUMBER}'
 
 
-    DEST_DIR = os.path.join(f'{DEST_DIR}', f"{RUN_NUMBER} (id = {TIME_ID})")
+    DEST_DIR = os.path.join(f'{dest_dir}', f"{RUN_NUMBER} (id = {TIME_ID})")
     os.makedirs(DEST_DIR)   
 
     # To copy this code and json file destination folder
-    shutil.copytree(par_dir + "\\Code" , DEST_DIR+"\\Initial Parameters", dirs_exist_ok=True)
+    shutil.copytree(PARENT_DIR + "\\Code" , DEST_DIR+"\\Initial Parameters", dirs_exist_ok=True)
 
 f_net_newfolder()
 
