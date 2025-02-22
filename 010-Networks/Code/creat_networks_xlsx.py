@@ -60,5 +60,96 @@ def f_net_newfolder():
     # To copy this code and json file destination folder
     shutil.copytree(PARENT_DIR + "\\Code" , DEST_DIR+"\\Initial Parameters", dirs_exist_ok=True)
 
+
+
+def f_read_initial_data():
+    global DICT_RUN, DICT_DATASETS, DICT_NETWORK
+    
+    with open("Initial Networks Parameters.json", "r") as json_file:
+        J_DATA      = json.load(json_file)
+        
+    DICT_RUN        = J_DATA["RUN"]
+    DICT_DATASETS   = J_DATA["DATASETS"]
+    DICT_NETWORK    = J_DATA["NETWORKS"]
+
+
+
+
+def f_graph_weight(w_type, w_const, w_min, w_max, num_edges):
+    
+    arr_weight = np.zeros(num_edges)
+    
+    if(w_type == "NORMAL_RANDOM"):
+        mu = (w_max + w_min) / 2
+        sigma = (w_max - w_min) / 3
+        arr_weight = np.random.normal(mu, sigma, num_edges)
+        arr_weight[(arr_weight < w_min )|(arr_weight > w_max)] = mu
+
+    elif(w_type == "UNIF_RANDOM"):
+        arr_weight = np.random.uniform(low = w_min, high = w_max, size = num_edges)
+
+    elif(w_type == "CONSTANT"):
+        arr_weight = arr_weight + w_const
+        print(arr_weight)
+
+    arr_weight = np.array(list(map(int, arr_weight)))
+
+    return arr_weight
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def f_main():
+    
+    global END_TIME
+    
+    f_net_newfolder()
+    f_read_initial_data()
+    
+    if(DICT_RUN["READ_FROM"] == "DATASETS"):
+        f_read_dataset()
+        
+    elif(DICT_RUN["READ_FROM"] == "NETWORKS"):
+        f_creat_networks()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 f_net_newfolder()
 
