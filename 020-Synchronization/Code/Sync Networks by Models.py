@@ -17,7 +17,7 @@ global DF_GRAPH, NUM_NODES
 global NUM_MODELS, NAMES_MODELS
 global arr_models_omega, arr_models_phi, arr_models_ampli
 global arr_models_op_coherence, arr_models_op_phase
-
+global index_sheet
 
 
 def f_net_newfolder():
@@ -112,6 +112,16 @@ def f_address_input_networks():
     
     
 
+def f_read_graph(g_name):
+    # OK
+    global DF_GRAPH, NUM_NODES
+    
+    DF_GRAPH = pd.read_excel(NET_DIR + g_name, sheet_name = index_sheet)
+    # To count the exact number of nodes because the "DF_GRAPH" is not a graph! it ia a dataframe.
+    NUM_NODES = max(max(DF_GRAPH["source"]), max(DF_GRAPH["target"])) + 1
+     
+ 
+    
 
 
 
