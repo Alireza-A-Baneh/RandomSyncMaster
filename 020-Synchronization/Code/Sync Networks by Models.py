@@ -149,11 +149,44 @@ def f_read_graph(g_name):
 
 
 
+def f_set_models_on_graphs():
+    
+    global index_sheet
+    f_address_input_networks()
+    
+    for rep in range(DICT_Run["TOTAL_REPEAT"]):
+        print(f"\n\n\tRepeat: {rep+1} of {DICT_Run['TOTAL_REPEAT']}")
+        print(f"\n\t\tRunning {NUM_MODELS} Model(s) at the same time on:")
+        network_counter = 1
+        # loop on all the networks that we want to put the models on them.
+        for net in range(len(L_name_networks)):
+            # To read the sheet number from .jason file
+            for in_sh in DICT_NETWORKS[L_name_networks[net]]:
+                index_sheet = in_sh
+                # Read the "index_sheet" from the "net" file
+                f_read_graph(L_address_input_networks[net])
+                f_initialize_models(L_address_input_networks[net])
+                f_select_feature(L_address_input_networks[net])
+                f_create_result_xlsx(network_counter, rep, L_address_input_networks[net])
+                f_start_sync()
+                f_desync_run()
+                f_end_sync(L_address_input_networks[net])
+                f_update_result_xlsx()
+                network_counter += 1
 
 
+    
+def f_main():
+    f_sync_newfolder()
+    f_read_parameters()
+    f_set_models_on_graphs()
+    
+    END_TIME = f'{datetime.now().strftime("%H:%M:%S")}'
+    print("\n-----------------------------------------------")
+    print(f"\nRun id: {TIME_ID}")
+    print(f"\nStart time: {START_TIME}")
+    print(f"End time: {END_TIME}")
+    print("\n-----------------------------------------------")
 
 
-
-
-
-f_net_newfolder()
+f_main()
