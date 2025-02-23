@@ -86,11 +86,31 @@ def f_read_parameters():
     LIST_MODELS = DICT_MODEL["FIXED_PAR"]["L_MODELS"]
     NUM_TOTAL_STEPS = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"] + DICT_RUN["END_SYNC_NUM_STEPS"]
 
+
+
+def f_address_input_networks():
+    # OK
+    global L_address_input_networks, L_name_networks
     
+    # To read all networks file in the "Networks" folder
+    if DICT_NETWORKS["L_NAME_NET"][0] == "ALL_NETWORKS":
+        #make a list of all xlsx files' addresses from the "Networks" folder
+        L_address_input_networks = list(filter(re.compile(".*xlsx").match, os.listdir(NET_DIR)))
+        # Some times there are more than one (e.g. 4) xlsx file in the "Networks" folder.
+        # Since we did not know their names before reading them, we need to make a list in the as length as long as their count.
+        # E.g. if there are 4 xlsx files, we need:["ALL_NETWORKS","ALL_NETWORKS","ALL_NETWORKS","ALL_NETWORKS"]
+        # Becouse, in the for loop, eache time it check the network's name(i.e. "ALL_NETWORKS") and reed the sheet number from .jason file.
+        # In the .jason file, we wrote sheet numbers like: "ALL_NETWORKS : [2,4,7]"; which applies for all the networks in the "Networks" folder.
+        L_name_networks = ["ALL_NETWORKS"] * len(L_address_input_networks)
 
-
-
-
+    else:
+        # If we want just specific networks files from the "Networks" folder
+        # This list would be used in the for loop.
+        L_name_networks = DICT_NETWORKS["L_NAME_NET"]
+        # make a copy to use it since the name and address is the same and was saved in the .json file.s
+        L_address_input_networks = L_name_networks.copy()
+    
+    
 
 
 
