@@ -1,0 +1,149 @@
+{
+    "NETWORKS" :{
+        "nothing"               : ["ALL_NETWORKS","WS_Graph.xlsx","ALL_NETWORKS",2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40],
+        "L_NAME_NET"            : ["ALL_NETWORKS"],
+        "ALL_NETWORKS"          : [2],
+
+        "Net-1-WS-230710-165313.xlsx": [2],
+        "file Name.xlsx/csv": [2]
+    },
+
+    "Run": {
+        "dt": 0.01,
+        "STEP_NOTIF": 100,
+        "ROUND_DIGITS": 4,
+        "TOTAL_REPEAT": 3,
+        "START_SYNC_NUM_STEPS": 1000,
+        "De_SYNC_NUM_STEPS": 2000,
+        "END_SYNC_NUM_STEPS": 2000
+    },
+
+    
+    "MODELS" :{
+        "FIXED_PAR":{
+            "NOTE_SYNC_FIXED_PARS"      : "K = 2, G =  0.3",
+            "NOTE_DESYNC_FIXED_PARS"    : "K = 0, G = -0.3",
+            "NUM_MODELS"                : 1,
+            "L_NAME_MODELS"             : "Kuramoto",
+            "L_MODELS"                  : [ "KM-KN_GN_CC_05","KM-KN_GN_CC_20",
+                                            "KM-KN_GN_BC_05","KM-KN_GN_BC_20",
+                                            "KM-KN_GN_EC_05","KM-KN_GN_EC_20",
+                                            "KM-KN_GN_PC_05","KM-KN_GN_PC_20",
+                                            "KM-KN_GN_HC_05","KM-KN_GN_HC_20",
+                                            "KM-KN_GN_AC_05","KM-KN_GN_AC_20",
+                                            "KM-KN_GN_ODC_05","KM-KN_GN_ODC_20",
+                                            "KM-KN_GN_IDC_05","KM-KN_GN_IDC_20",
+                                            "KM-KN_GN_Rand_05","KM-KN_GN_Rand_20"]
+        },
+
+
+
+        "KM-KN_GN_CC_05" :{
+            "TYPE_K"                    : "ALL_SAME_FIXED",
+            "VALUE_K"                   : 2,
+
+            "TYPE_G"                    : "ALL_SAME_FIXED",
+            "VALUE_G"                   : 0.3,
+
+            "TYPE_OMEGA"                : "NORMAL_RANDOM",
+            "MEAN_OMEGA"                : 3,
+            "STD_OMEGA"                 : 0.5,
+
+            "TYPE_PHI"                  : "UNIF_RANDOM",
+            "MAX_PHI"                   : 3,
+            "MIN_PHI"                   : -3,
+
+            "TYPE_NOISE"                : "NORMAL_RANDOM",
+            "MEAN_NOISE"                : 3,
+            "STD_NOISE"                 : 0.5,
+            "ALPHA_NOISE"               : 0.99,
+            "STEPS_NOISE"               : 300,
+
+            "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
+            "DSYNC_FEATURE_CONDITION"   : "TOP",
+            "DSYNC_PERCENT_NODES"       : 5,
+
+            "DSYNC_PARAMETERS"          : ["K","G"],
+            "DSYNC_NEW_VALUE_K"         : -1,
+            "DSYNC_NEW_VALUE_G"         : -1
+        },
+
+        "KM-KN_GN_CC_10" :{
+            "TYPE_K"                    : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_K"              : 0,
+
+            "TYPE_G"                    : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_G"              : 0,
+
+            "TYPE_OMEGA"                : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_OMEGA"          : 0,
+
+            "TYPE_PHI"                  : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_PHI"            : 0,
+
+            "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_NOISE"          : 0,
+            "STEPS_NOISE"               : 300,
+
+            "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
+            "DSYNC_FEATURE_CONDITION"   : "TOP",
+            "DSYNC_PERCENT_NODES"       : 10,
+
+            "DSYNC_PARAMETERS"          : ["K","G"],
+            "DSYNC_NEW_VALUE_K"         : -1,
+            "DSYNC_NEW_VALUE_G"         : -1
+        },
+
+        "KM-KN_GN_CC_15" :{
+            "TYPE_K"                    : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_K"              : 0,
+
+            "TYPE_G"                    : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_G"              : 0,
+
+            "TYPE_OMEGA"                : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_OMEGA"          : 0,
+
+            "TYPE_PHI"                  : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_PHI"            : 0,
+
+            "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_NOISE"          : 0,
+            "STEPS_NOISE"               : 300,
+
+            "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
+            "DSYNC_FEATURE_CONDITION"   : "TOP",
+            "DSYNC_PERCENT_NODES"       : 15,
+
+            "DSYNC_PARAMETERS"          : ["K","G"],
+            "DSYNC_NEW_VALUE_K"         : -1,
+            "DSYNC_NEW_VALUE_G"         : -1
+        },
+        
+        "KM-KN_GN_CC_20" :{
+            "TYPE_K"                    : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_K"              : 0,
+
+            "TYPE_G"                    : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_G"              : 0,
+
+            "TYPE_OMEGA"                : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_OMEGA"          : 0,
+
+            "TYPE_PHI"                  : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_PHI"            : 0,
+
+            "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
+            "LIKE_MODEL_NOISE"          : 0,
+            "STEPS_NOISE"               : 300,
+
+            "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
+            "DSYNC_FEATURE_CONDITION"   : "TOP",
+            "DSYNC_PERCENT_NODES"       : 20,
+
+            "DSYNC_PARAMETERS"          : ["K","G"],
+            "DSYNC_NEW_VALUE_K"         : -1,
+            "DSYNC_NEW_VALUE_G"         : -1
+        }
+    }
+}
