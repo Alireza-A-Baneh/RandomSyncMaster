@@ -12,7 +12,7 @@
         "dt": 0.01,
         "STEP_NOTIF": 100,
         "ROUND_DIGITS": 4,
-        "TOTAL_REPEAT": 3,
+        "TOTAL_REPEAT": 1,
         "START_SYNC_NUM_STEPS": 1000,
         "De_SYNC_NUM_STEPS": 2000,
         "END_SYNC_NUM_STEPS": 2000
@@ -68,7 +68,7 @@
             "DSYNC_NEW_VALUE_G"         : -1,
 
             "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_TYPE"           : "OLD_VALUE",
+            "SYNC_RESET_TYPE"           : "NEW_VALUE",
             "SYNC_RESET_VALUE_K"        : -1,
             "SYNC_RESET_VALUE_G"        : -1
         },
@@ -100,7 +100,7 @@
             "DSYNC_NEW_VALUE_G"         : -1,
 
             "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_TYPE"           : "OLD_VALUE",
+            "SYNC_RESET_TYPE"           : "NEW_VALUE",
             "SYNC_RESET_VALUE_K"        : -1,
             "SYNC_RESET_VALUE_G"        : -1
         },
@@ -132,7 +132,7 @@
             "DSYNC_NEW_VALUE_G"         : -1,
 
             "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_TYPE"           : "OLD_VALUE",
+            "SYNC_RESET_TYPE"           : "NEW_VALUE",
             "SYNC_RESET_VALUE_K"        : -1,
             "SYNC_RESET_VALUE_G"        : -1
         },
@@ -164,7 +164,7 @@
             "DSYNC_NEW_VALUE_G"         : -1,
 
             "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_TYPE"           : "OLD_VALUE",
+            "SYNC_RESET_TYPE"           : "NEW_VALUE",
             "SYNC_RESET_VALUE_K"        : -1,
             "SYNC_RESET_VALUE_G"        : -1
         }

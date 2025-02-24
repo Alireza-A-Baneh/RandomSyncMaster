@@ -440,15 +440,9 @@ def f_start_sync():
                 # if(noise_type == "NORMAL_RANDOM"):
                 #     DICT_MODEL[LIST_MODELS[n]]["STD_NOISE"] *= DICT_MODEL[LIST_MODELS[n]]["ALPHA_NOISE"]
                     
-                # print(arr_models_noise[n,:])
-                # print(n)
                 arr_models_noise[n,:]  = arr_type(noise_type, LIST_MODELS[n], "_NOISE","NoAddress") 
-                # print(arr_models_noise[n,:])
-                # print(n)
                 arr_models_noise[n,:] *= DICT_MODEL[LIST_MODELS[n]]["ALPHA_NOISE"]
-                # print(n)
-                # print(LIST_MODELS[n])
-                # print(DICT_MODEL[LIST_MODELS[n]])
+
             # input()
             #if(NAMES_MODELS[n] == "Kuramoto"):
             f_k_models_op_sync(n, su)
@@ -512,6 +506,7 @@ def f_end_sync(address_net):
                 
                 if (DICT_MODEL[model_name]["SYNC_RESET_TYPE"] == "NEW_VALUE"):
                     if (par_case == "K"):
+                        # print(arr_models_k[m, manip_node])
                         arr_models_k[m, manip_node] *= DICT_MODEL[model_name]["SYNC_RESET_VALUE_K"]
                     elif (par_case == "G"):
                         arr_models_g[m, manip_node] *= DICT_MODEL[model_name]["SYNC_RESET_VALUE_G"]
