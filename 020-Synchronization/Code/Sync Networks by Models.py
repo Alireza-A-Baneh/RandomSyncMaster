@@ -406,6 +406,47 @@ def f_k_model(model, update, dt, node, l_neighbors):
 
 
 
+def f_start_sync():
+    
+    global list_dict_phi, list_dict_noise, arr_models_noise, DICT_MODEL
+
+    start_step = 1
+    end_step = DICT_Run["START_SYNC_NUM_STEPS"]
+
+    for su in range(start_step, end_step):
+        
+        if (su+1) % DICT_Run["STEP_NOTIF"] == 0:
+            print(f"\t\t\t\tSynchronization: %{round(100 * su / end_step)} is Done!",end='\r')
+    
+        for node in range(NUM_NODES):
+            list_neighbors = list(DF_GRAPH.loc[DF_GRAPH['source'] == node, 'target'])
+
+            for m in range(NUM_MODELS):
+                f_k_model(m, su, DICT_Run["dt"], node, list_neighbors)
+
+        col_name = str(round((su) * DICT_Run["dt"],2))
+        
+        for n in range(NUM_MODELS):
+            list_dict_phi[n][col_name] = arr_models_phi[n,:].copy()
+            
+            if(su <= DICT_MODEL[LIST_MODELS[n]]["STEPS_NOISE"]):
+                list_dict_noise[n][col_name] = arr_models_noise[n,:].copy()
+                noise_type = DICT_MODEL[LIST_MODELS[n]]["TYPE_NOISE"]
+                
+                # if(noise_type == "NORMAL_RANDOM"):
+                #     DICT_MODEL[LIST_MODELS[n]]["STD_NOISE"] *= DICT_MODEL[LIST_MODELS[n]]["ALPHA_NOISE"]
+                    
+                arr_models_noise[n,:]  = arr_type(noise_type, LIST_MODELS[n], "_NOISE","NoAddress") 
+                arr_models_noise[n,:] *= DICT_MODEL[LIST_MODELS[n]]["ALPHA_NOISE"]
+            #     print(arr_models_noise[n,:])
+            # input()
+            #if(NAMES_MODELS[n] == "Kuramoto"):
+            f_k_models_op_sync(n, su)
+    
+    print("")
+        
+
+
 
 
 
