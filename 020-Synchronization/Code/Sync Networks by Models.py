@@ -298,6 +298,58 @@ def f_select_feature(g_name):
 
 
 
+def f_create_result_xlsx(net_number, rep, address_net):
+    
+    global list_result_xlsx_path
+    
+    print(f"\n\t\t\t{address_net}, Sheet: {index_sheet}")
+
+    #To Create a suitable name for new xlsx file
+    repeat = 'Rep{:0{}}'.format(rep+1, 2)
+    network_number = 'Net{:0{}}'.format(net_number, 2)
+    list_result_xlsx_path = []
+    
+    for m in range(NUM_MODELS):
+        model_name = LIST_MODELS[m]
+        
+        path = DEST_DIR + f"\\{address_net.split('-')[2]}-{model_name}-{repeat}-{TIME_ID}.xlsx"
+        # path = DEST_DIR + f"\\{repeat}-{network_number}-{model_name}-{DICT_MODEL[model_name]['NOTE']}-{address_net.split('-')[2]}-{TIME_ID}.xlsx"
+        list_result_xlsx_path.append(path)
+        
+        wb = openpyxl.Workbook()
+        wb.save(list_result_xlsx_path[m])
+        
+        df_temp_network = pd.read_excel(NET_DIR + address_net, sheet_name = 0)
+        df_temp_network = df_temp_network[df_temp_network.Network_Parameters != "Repeat"]
+        df_temp_network = df_temp_network.reset_index(drop = True)
+        
+        df_temp_run = pd.DataFrame.from_dict(DICT_Run, orient='index').reset_index()
+        df_temp_run.loc[len(df_temp_run), :] = ['REPEAT',int(rep+1)]
+
+        df_temp_model_1 = pd.DataFrame.from_dict(DICT_MODEL["FIXED_PAR"], orient='index').reset_index()
+        df_temp_model_2 = pd.DataFrame.from_dict(DICT_MODEL[model_name], orient='index').reset_index()
+        df_temp_model = pd.concat([df_temp_model_1, df_temp_model_2], axis=0, ignore_index= True) 
+        df_temp_model.loc[len(df_temp_model), :] = ['NodesToChange','']
+        df_temp_model.loc[len(df_temp_model)-1,0] = list_list_features_nodes[m]
+
+        Network_Info = pd.concat([df_temp_model, df_temp_network, df_temp_run], axis=1, ignore_index= True) 
+        Network_Info.columns = ["Model_Parameters", "Model_Values", "Network_Parameters", "Network_Values", "Run_Parameters", "Run_Values"] 
+        
+        df_network_nodes = pd.read_excel(NET_DIR + address_net, sheet_name = index_sheet-1)
+        df_network_nodes["Omega"]   = arr_models_omega[m,:]
+        df_network_nodes["K"]       = arr_models_k[m,:]
+        df_network_nodes["G"]       = arr_models_g[m,:]
+        
+        with pd.ExcelWriter(list_result_xlsx_path[m], mode = "a", engine = "openpyxl") as writer:
+            Network_Info.to_excel(writer, sheet_name= "Network_Info", index = False)
+            df_network_nodes.to_excel(writer, sheet_name= "Nodes", index = False)
+            DF_GRAPH.to_excel(writer, sheet_name= "Edges", index = False)
+
+        wb=openpyxl.load_workbook(list_result_xlsx_path[m])
+        wb.remove(wb['Sheet'])
+        wb.save(list_result_xlsx_path[m])
+
+            
 
 
 
