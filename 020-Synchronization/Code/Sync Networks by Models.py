@@ -446,8 +446,92 @@ def f_start_sync():
     print("")
         
 
+def f_desync_run():
+    
+    global arr_models_k, arr_models_g, list_dict_phi, arr_models_phi
+    
+    start_step = DICT_Run["START_SYNC_NUM_STEPS"]
+    end_step = DICT_Run["START_SYNC_NUM_STEPS"] + DICT_Run["De_SYNC_NUM_STEPS"]
+
+    for m in range(NUM_MODELS):   
+        model_name = LIST_MODELS[m]
+        for par_case in DICT_MODEL[model_name]["DSYNC_PARAMETERS"]:
+            for manip_node in list_list_features_nodes[m]:
+                if (par_case == "K"):
+                    arr_models_k[m, manip_node] *= DICT_MODEL[model_name]["DSYNC_NEW_VALUE_K"]
+                elif (par_case == "G"):
+                    arr_models_g[m, manip_node] *= DICT_MODEL[model_name]["DSYNC_NEW_VALUE_G"]
+    
+    for dsu in range(start_step, end_step):
+        if (dsu+1) % DICT_Run["STEP_NOTIF"] == 0:
+            print(f"\t\t\t\tDe-Synchronization: %{round(100 * dsu / end_step)} is Done!",end='\r')
+        
+        for node in range(NUM_NODES):
+            list_neighbors = list(DF_GRAPH.loc[DF_GRAPH['source'] == node, 'target'])
+            for m in range(NUM_MODELS):
+                f_k_model(m, dsu, DICT_Run["dt"], node, list_neighbors)
+                
+        # for par_case in DICT_MODEL[model_name]["DSYNC_PARAMETERS"]:
+        #     if (par_case == "PHI"):
+        #         for manip_node in list_list_features_nodes[m]:
+
+        #             arr_models_phi[m, manip_node] += ((arr_models_op_coherence[m, (dsu-1)] + np.pi) % (2 * np.pi))
+
+            
+            
+        col_name = str(round((dsu) * DICT_Run["dt"],2))
+        for n in range(NUM_MODELS):
+            list_dict_phi[n][col_name] = arr_models_phi[n,:].copy()
+            #if(NAMES_MODELS[n] == "Kuramoto"):
+            f_k_models_op_sync(n, dsu)
 
 
+
+
+def f_end_sync(address_net):
+    global list_dict_phi, arr_models_noise
+
+    start_step = DICT_Run["START_SYNC_NUM_STEPS"] + DICT_Run["De_SYNC_NUM_STEPS"]
+    end_step = NUM_TOTAL_STEPS
+    print("")
+    
+    for m in range(NUM_MODELS):   
+        model_name = LIST_MODELS[m]
+        for manip_node in list_list_features_nodes[m]:
+            for par_case in DICT_MODEL[model_name]["SYNC_RESET_PARAMETERS"]:
+                
+                if (DICT_MODEL[model_name]["SYNC_RESET_TYPE"] == "NEW_VALUE"):
+                    if (par_case == "K"):
+                        arr_models_k[m, manip_node] = DICT_MODEL[model_name]["SYNC_RESET_VALUE_K"]
+                    elif (par_case == "G"):
+                        arr_models_g[m, manip_node] = DICT_MODEL[model_name]["SYNC_RESET_VALUE_G"]
+                        
+                # elif(DICT_MODEL[model_name]["SYNC_RESET_TYPE"] == "OLD_VALUE"):
+                #     if (par_case == "K"):
+                #         k_type = DICT_MODEL[model_name]["TYPE_K"]
+                #         arr_models_k[m,:] = arr_type(k_type, model_name, "_K", address_net)
+                #     elif (par_case == "G"):
+                #         g_type = DICT_MODEL[model_name]["TYPE_G"]
+                #         arr_models_g[m,:] = arr_type(g_type, model_name, "_G", address_net)    
+
+    for su in range(start_step, end_step):
+        if ((su+1) % DICT_Run["STEP_NOTIF"] == 0):
+            print(f"\t\t\t\tSynchronization: %{round(100 * (su-start_step) / (end_step-start_step))} is Done!",end='\r')
+    
+        for node in range(NUM_NODES):
+            list_neighbors = list(DF_GRAPH.loc[DF_GRAPH['source'] == node, 'target'])
+            for m in range(NUM_MODELS):
+                f_k_model(m, su, DICT_Run["dt"], node, list_neighbors)
+                
+        col_name = str(round((su) * DICT_Run["dt"],2))
+        
+        for n in range(NUM_MODELS):
+            list_dict_phi[n][col_name] = arr_models_phi[n,:].copy()
+            
+            #if(NAMES_MODELS[n] == "Kuramoto"):
+            f_k_models_op_sync(n, su)
+
+    
 
 
 
