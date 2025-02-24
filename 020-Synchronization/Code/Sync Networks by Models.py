@@ -74,7 +74,7 @@ def f_read_parameters():
     global DICT_NETWORKS, DICT_RUN, DICT_MODEL
     global NUM_MODELS, LIST_MODELS, NUM_TOTAL_STEPS
 
-    with open("Initial Sync Parameters.json", "r") as json_file:
+    with open(CODE_DIR+"\\Initial Sync Parameters.json", "r") as json_file:
         DATA = json.load(json_file)
         
     #Seperate data from json file in different dictionaries to (Easy to Access)
@@ -323,14 +323,18 @@ def f_create_result_xlsx(net_number, rep, address_net):
         df_temp_network = df_temp_network[df_temp_network.Network_Parameters != "Repeat"]
         df_temp_network = df_temp_network.reset_index(drop = True)
         
-        df_temp_run = pd.DataFrame.from_dict(DICT_Run, orient='index').reset_index()
+        df_temp_run = pd.DataFrame.from_dict(DICT_RUN, orient='index').reset_index()
         df_temp_run.loc[len(df_temp_run), :] = ['REPEAT',int(rep+1)]
 
         df_temp_model_1 = pd.DataFrame.from_dict(DICT_MODEL["FIXED_PAR"], orient='index').reset_index()
+        # print(df_temp_model_1)
         df_temp_model_2 = pd.DataFrame.from_dict(DICT_MODEL[model_name], orient='index').reset_index()
+        # print(df_temp_model_2)
         df_temp_model = pd.concat([df_temp_model_1, df_temp_model_2], axis=0, ignore_index= True) 
+        # print(df_temp_model)
         df_temp_model.loc[len(df_temp_model), :] = ['NodesToChange','']
-        df_temp_model.loc[len(df_temp_model)-1,0] = list_list_features_nodes[m]
+        df_temp_model.at[len(df_temp_model)-1,0] = list_list_features_nodes[m]
+        # print(df_temp_model)
 
         Network_Info = pd.concat([df_temp_model, df_temp_network, df_temp_run], axis=1, ignore_index= True) 
         Network_Info.columns = ["Model_Parameters", "Model_Values", "Network_Parameters", "Network_Values", "Run_Parameters", "Run_Values"] 
@@ -411,20 +415,20 @@ def f_start_sync():
     global list_dict_phi, list_dict_noise, arr_models_noise, DICT_MODEL
 
     start_step = 1
-    end_step = DICT_Run["START_SYNC_NUM_STEPS"]
+    end_step = DICT_RUN["START_SYNC_NUM_STEPS"]
 
     for su in range(start_step, end_step):
         
-        if (su+1) % DICT_Run["STEP_NOTIF"] == 0:
+        if (su+1) % DICT_RUN["STEP_NOTIF"] == 0:
             print(f"\t\t\t\tSynchronization: %{round(100 * su / end_step)} is Done!",end='\r')
     
         for node in range(NUM_NODES):
             list_neighbors = list(DF_GRAPH.loc[DF_GRAPH['source'] == node, 'target'])
 
             for m in range(NUM_MODELS):
-                f_k_model(m, su, DICT_Run["dt"], node, list_neighbors)
+                f_k_model(m, su, DICT_RUN["dt"], node, list_neighbors)
 
-        col_name = str(round((su) * DICT_Run["dt"],2))
+        col_name = str(round((su) * DICT_RUN["dt"],2))
         
         for n in range(NUM_MODELS):
             list_dict_phi[n][col_name] = arr_models_phi[n,:].copy()
@@ -436,9 +440,15 @@ def f_start_sync():
                 # if(noise_type == "NORMAL_RANDOM"):
                 #     DICT_MODEL[LIST_MODELS[n]]["STD_NOISE"] *= DICT_MODEL[LIST_MODELS[n]]["ALPHA_NOISE"]
                     
+                # print(arr_models_noise[n,:])
+                # print(n)
                 arr_models_noise[n,:]  = arr_type(noise_type, LIST_MODELS[n], "_NOISE","NoAddress") 
+                # print(arr_models_noise[n,:])
+                # print(n)
                 arr_models_noise[n,:] *= DICT_MODEL[LIST_MODELS[n]]["ALPHA_NOISE"]
-            #     print(arr_models_noise[n,:])
+                # print(n)
+                # print(LIST_MODELS[n])
+                # print(DICT_MODEL[LIST_MODELS[n]])
             # input()
             #if(NAMES_MODELS[n] == "Kuramoto"):
             f_k_models_op_sync(n, su)
@@ -450,8 +460,8 @@ def f_desync_run():
     
     global arr_models_k, arr_models_g, list_dict_phi, arr_models_phi
     
-    start_step = DICT_Run["START_SYNC_NUM_STEPS"]
-    end_step = DICT_Run["START_SYNC_NUM_STEPS"] + DICT_Run["De_SYNC_NUM_STEPS"]
+    start_step = DICT_RUN["START_SYNC_NUM_STEPS"]
+    end_step = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"]
 
     for m in range(NUM_MODELS):   
         model_name = LIST_MODELS[m]
@@ -463,13 +473,13 @@ def f_desync_run():
                     arr_models_g[m, manip_node] *= DICT_MODEL[model_name]["DSYNC_NEW_VALUE_G"]
     
     for dsu in range(start_step, end_step):
-        if (dsu+1) % DICT_Run["STEP_NOTIF"] == 0:
+        if (dsu+1) % DICT_RUN["STEP_NOTIF"] == 0:
             print(f"\t\t\t\tDe-Synchronization: %{round(100 * dsu / end_step)} is Done!",end='\r')
         
         for node in range(NUM_NODES):
             list_neighbors = list(DF_GRAPH.loc[DF_GRAPH['source'] == node, 'target'])
             for m in range(NUM_MODELS):
-                f_k_model(m, dsu, DICT_Run["dt"], node, list_neighbors)
+                f_k_model(m, dsu, DICT_RUN["dt"], node, list_neighbors)
                 
         # for par_case in DICT_MODEL[model_name]["DSYNC_PARAMETERS"]:
         #     if (par_case == "PHI"):
@@ -479,7 +489,7 @@ def f_desync_run():
 
             
             
-        col_name = str(round((dsu) * DICT_Run["dt"],2))
+        col_name = str(round((dsu) * DICT_RUN["dt"],2))
         for n in range(NUM_MODELS):
             list_dict_phi[n][col_name] = arr_models_phi[n,:].copy()
             #if(NAMES_MODELS[n] == "Kuramoto"):
@@ -491,7 +501,7 @@ def f_desync_run():
 def f_end_sync(address_net):
     global list_dict_phi, arr_models_noise
 
-    start_step = DICT_Run["START_SYNC_NUM_STEPS"] + DICT_Run["De_SYNC_NUM_STEPS"]
+    start_step = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"]
     end_step = NUM_TOTAL_STEPS
     print("")
     
@@ -502,9 +512,9 @@ def f_end_sync(address_net):
                 
                 if (DICT_MODEL[model_name]["SYNC_RESET_TYPE"] == "NEW_VALUE"):
                     if (par_case == "K"):
-                        arr_models_k[m, manip_node] = DICT_MODEL[model_name]["SYNC_RESET_VALUE_K"]
+                        arr_models_k[m, manip_node] *= DICT_MODEL[model_name]["SYNC_RESET_VALUE_K"]
                     elif (par_case == "G"):
-                        arr_models_g[m, manip_node] = DICT_MODEL[model_name]["SYNC_RESET_VALUE_G"]
+                        arr_models_g[m, manip_node] *= DICT_MODEL[model_name]["SYNC_RESET_VALUE_G"]
                         
                 # elif(DICT_MODEL[model_name]["SYNC_RESET_TYPE"] == "OLD_VALUE"):
                 #     if (par_case == "K"):
@@ -515,15 +525,15 @@ def f_end_sync(address_net):
                 #         arr_models_g[m,:] = arr_type(g_type, model_name, "_G", address_net)    
 
     for su in range(start_step, end_step):
-        if ((su+1) % DICT_Run["STEP_NOTIF"] == 0):
+        if ((su+1) % DICT_RUN["STEP_NOTIF"] == 0):
             print(f"\t\t\t\tSynchronization: %{round(100 * (su-start_step) / (end_step-start_step))} is Done!",end='\r')
     
         for node in range(NUM_NODES):
             list_neighbors = list(DF_GRAPH.loc[DF_GRAPH['source'] == node, 'target'])
             for m in range(NUM_MODELS):
-                f_k_model(m, su, DICT_Run["dt"], node, list_neighbors)
+                f_k_model(m, su, DICT_RUN["dt"], node, list_neighbors)
                 
-        col_name = str(round((su) * DICT_Run["dt"],2))
+        col_name = str(round((su) * DICT_RUN["dt"],2))
         
         for n in range(NUM_MODELS):
             list_dict_phi[n][col_name] = arr_models_phi[n,:].copy()
@@ -532,20 +542,6 @@ def f_end_sync(address_net):
             f_k_models_op_sync(n, su)
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def f_set_models_on_graphs():
 

@@ -23,7 +23,7 @@
         "FIXED_PAR":{
             "NOTE_SYNC_FIXED_PARS"      : "K = 2, G =  0.3",
             "NOTE_DESYNC_FIXED_PARS"    : "K = 0, G = -0.3",
-            "NUM_MODELS"                : 1,
+            "NUM_MODELS"                : 2,
             "L_NAME_MODELS"             : "Kuramoto",
             "L_MODELS"                  : [ "KM-KN_GN_CC_05","KM-KN_GN_CC_20",
                                             "KM-KN_GN_BC_05","KM-KN_GN_BC_20",
@@ -65,7 +65,12 @@
 
             "DSYNC_PARAMETERS"          : ["K","G"],
             "DSYNC_NEW_VALUE_K"         : -1,
-            "DSYNC_NEW_VALUE_G"         : -1
+            "DSYNC_NEW_VALUE_G"         : -1,
+
+            "SYNC_RESET_PARAMETERS"     : ["K","G"],
+            "SYNC_RESET_TYPE"           : "OLD_VALUE",
+            "SYNC_RESET_VALUE_K"        : -1,
+            "SYNC_RESET_VALUE_G"        : -1
         },
 
         "KM-KN_GN_CC_10" :{
@@ -83,6 +88,7 @@
 
             "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_NOISE"          : 0,
+            "ALPHA_NOISE"               : 0.99,
             "STEPS_NOISE"               : 300,
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
@@ -91,7 +97,12 @@
 
             "DSYNC_PARAMETERS"          : ["K","G"],
             "DSYNC_NEW_VALUE_K"         : -1,
-            "DSYNC_NEW_VALUE_G"         : -1
+            "DSYNC_NEW_VALUE_G"         : -1,
+
+            "SYNC_RESET_PARAMETERS"     : ["K","G"],
+            "SYNC_RESET_TYPE"           : "OLD_VALUE",
+            "SYNC_RESET_VALUE_K"        : -1,
+            "SYNC_RESET_VALUE_G"        : -1
         },
 
         "KM-KN_GN_CC_15" :{
@@ -109,6 +120,7 @@
 
             "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_NOISE"          : 0,
+            "ALPHA_NOISE"               : 0.99,
             "STEPS_NOISE"               : 300,
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
@@ -117,7 +129,12 @@
 
             "DSYNC_PARAMETERS"          : ["K","G"],
             "DSYNC_NEW_VALUE_K"         : -1,
-            "DSYNC_NEW_VALUE_G"         : -1
+            "DSYNC_NEW_VALUE_G"         : -1,
+
+            "SYNC_RESET_PARAMETERS"     : ["K","G"],
+            "SYNC_RESET_TYPE"           : "OLD_VALUE",
+            "SYNC_RESET_VALUE_K"        : -1,
+            "SYNC_RESET_VALUE_G"        : -1
         },
         
         "KM-KN_GN_CC_20" :{
@@ -135,6 +152,7 @@
 
             "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_NOISE"          : 0,
+            "ALPHA_NOISE"               : 0.99,
             "STEPS_NOISE"               : 300,
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
@@ -143,7 +161,12 @@
 
             "DSYNC_PARAMETERS"          : ["K","G"],
             "DSYNC_NEW_VALUE_K"         : -1,
-            "DSYNC_NEW_VALUE_G"         : -1
+            "DSYNC_NEW_VALUE_G"         : -1,
+
+            "SYNC_RESET_PARAMETERS"     : ["K","G"],
+            "SYNC_RESET_TYPE"           : "OLD_VALUE",
+            "SYNC_RESET_VALUE_K"        : -1,
+            "SYNC_RESET_VALUE_G"        : -1
         }
     }
 }
