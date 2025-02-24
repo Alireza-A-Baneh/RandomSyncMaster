@@ -87,7 +87,6 @@ def f_read_parameters():
     NUM_TOTAL_STEPS = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"] + DICT_RUN["END_SYNC_NUM_STEPS"]
 
 
-
 def f_address_input_networks():
     # OK
     global L_address_input_networks, L_name_networks
@@ -110,7 +109,6 @@ def f_address_input_networks():
         # make a copy to use it since the name and address is the same and was saved in the .json file.s
         L_address_input_networks = L_name_networks.copy()
     
-    
 
 def f_read_graph(g_name):
     # OK
@@ -120,8 +118,6 @@ def f_read_graph(g_name):
     # To count the exact number of nodes because the "DF_GRAPH" is not a graph! it ia a dataframe.
     NUM_NODES = max(max(DF_GRAPH["source"]), max(DF_GRAPH["target"])) + 1
      
- 
-    
     
 def arr_type(the_type, model_name, case, address_net):
     
@@ -200,7 +196,6 @@ def arr_type(the_type, model_name, case, address_net):
     return arr_value
     
 
-
 def f_k_models_op_sync(model, step):
     global arr_models_op_coherence, arr_models_op_phase
     
@@ -209,7 +204,6 @@ def f_k_models_op_sync(model, step):
 
     arr_models_op_phase[model, step] = np.arctan2(parameter_img, parameter_real) % (2 * np.pi)
     arr_models_op_coherence[model, step] = np.sqrt(parameter_real**2 + parameter_img**2)
-
 
 
 def f_initialize_models(address_net):
@@ -261,6 +255,46 @@ def f_initialize_models(address_net):
         # To calculate the ort\der parameter of step 0!
         f_k_models_op_sync(m, 0)
 
+
+
+def f_select_feature(g_name):
+    global list_Models_features, list_list_features_nodes
+    
+    df_nodes_features = pd.read_excel(NET_DIR + g_name, sheet_name = index_sheet-1)
+    
+    list_Models_features = []
+    list_list_features_nodes = []
+    
+    for m in range(NUM_MODELS):
+        model_name = LIST_MODELS[m]
+        feature_name = DICT_MODEL[model_name]["DSYNC_FEATURE_COLNAME"]
+        condition = DICT_MODEL[model_name]["DSYNC_FEATURE_CONDITION"]
+        
+        if (condition == "TOP"):
+            num_nodes_to_change = int(DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"] / 100 * NUM_NODES) - 1
+            nodes = list(df_nodes_features.sort_values(by=feature_name, ascending = False).reset_index(drop = True).loc[:num_nodes_to_change,"Id"])
+
+            
+        elif (condition == "DOWN"):
+            num_nodes_to_change = int(DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"] / 100 * NUM_NODES) - 1
+            nodes = list(df_nodes_features.sort_values(by=feature_name, ascending = True).reset_index(drop = True).loc[:num_nodes_to_change,"Id"])
+        
+        elif (condition == "EQUAL"):
+            num_nodes_to_change = int(DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"] / 100 * NUM_NODES)
+            limit = DICT_MODEL[model_name]["DSYNC_FEATURE_VALUE"]
+            nodes = list(df_nodes_features.loc[df_nodes_features[feature_name] == limit, "Id"])
+            random.shuffle(nodes)
+            nodes = nodes[0:min(len(nodes),(num_nodes_to_change))]
+        
+        elif (condition == "RANDOM"): 
+            num_nodes_to_change = int(DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"] / 100 * NUM_NODES)
+            nodes = np.random.randint(0,NUM_NODES,(num_nodes_to_change))
+            
+        # print(condition)
+        # print(len(nodes))
+        list_Models_features.append(feature_name)
+        list_list_features_nodes.append(nodes)
+        # input()
 
 
 
