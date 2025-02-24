@@ -380,6 +380,28 @@ def f_update_result_xlsx():
             df_order_parameter.to_excel(writer, sheet_name= "OP_Sync", index = False)
             
           
+           
+def f_k_model(model, update, dt, node, l_neighbors): 
+    #To solve Kuramoto difference equation
+    
+    global arr_models_phi, arr_models_noise
+    global temp_arr_phi
+    
+    #To calculate the sigma
+    sigma = 0
+    for i in l_neighbors:
+        sigma += arr_models_g[model, i] * (np.sin(arr_models_phi[model, i] - arr_models_phi[model, node]))
+    
+    #To calculate the new phase
+    diff_phi = arr_models_omega[model, node] + arr_models_k[model, node] * sigma
+    temp_arr_phi[model, node] = arr_models_phi[model, node] + diff_phi * dt 
+    
+    if (node == (NUM_NODES-1)):
+        if(update <= DICT_MODEL[LIST_MODELS[model]]["STEPS_NOISE"]):
+            temp_arr_phi[model, :] = temp_arr_phi[model, :] + arr_models_noise[model,:] 
+            
+        arr_models_phi[model, :] = temp_arr_phi[model, :].copy()
+        
 
 
 
