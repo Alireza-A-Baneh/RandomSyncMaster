@@ -351,6 +351,35 @@ def f_create_result_xlsx(net_number, rep, address_net):
 
             
 
+def f_update_result_xlsx():     
+    
+    for m in range(NUM_MODELS):
+        
+        df_phi = pd.DataFrame(list_dict_phi[m])
+        df_time = pd.DataFrame(df_phi.columns).T.astype(float)
+        df_phi.columns = df_time.columns.copy()
+        df_phi = pd.concat([df_time, df_phi], ignore_index=True)
+        
+        df_noise = pd.DataFrame(list_dict_noise[m])
+        df_step = df_time.iloc[:,1:(DICT_MODEL[LIST_MODELS[m]]["STEPS_NOISE"]+1)]
+        df_noise.columns = df_step.columns.copy()
+
+        df_noise = pd.concat([df_step, df_noise], ignore_index=True)
+        
+        df_op_phase = pd.DataFrame(arr_models_op_phase[m,])
+        df_op_coherence = pd.DataFrame(arr_models_op_coherence[m,])
+        df_order_parameter = pd.DataFrame()
+        df_order_parameter["Time"] = df_time.columns.T
+        df_order_parameter["Phase"] = df_op_phase
+        df_order_parameter["Coherence"] = df_op_coherence
+
+        with pd.ExcelWriter(list_result_xlsx_path[m], mode = "a", engine = "openpyxl") as writer:
+            df_noise.to_excel(writer, sheet_name= "Noise", index = False)
+            df_phi.to_excel(writer, sheet_name= "Phi", index = False)
+            #df_phi_2pi.to_excel(writer, sheet_name= "Phi_2pi", index = False)
+            df_order_parameter.to_excel(writer, sheet_name= "OP_Sync", index = False)
+            
+          
 
 
 
