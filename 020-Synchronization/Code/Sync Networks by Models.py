@@ -84,6 +84,31 @@ def f_read_parameters():
     
     NUM_MODELS = DICT_MODEL["FIXED_PAR"]["NUM_MODELS"]
     LIST_MODELS = DICT_MODEL["FIXED_PAR"]["L_MODELS"]
+    # print(DICT_MODEL["FIXED_PAR"]["L_MODELS"])
+
+
+    for i in range(NUM_MODELS):
+        m = DICT_MODEL["FIXED_PAR"]["L_MODELS"][i]
+
+        K = re.sub(".*_K=(.*)_G.*","\\1",m)
+
+        G = re.sub(".*_G=(.*)_.*","\\1",m)
+        # print(DICT_MODEL[m])
+
+        DICT_MODEL[m]["VALUE_K"] = K
+        DICT_MODEL[m]["VALUE_G"] = G
+
+        # print(DICT_MODEL[m])
+        # print(DICT_MODEL)
+
+    
+
+
+
+
+
+        
+
     NUM_TOTAL_STEPS = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"] + DICT_RUN["END_SYNC_NUM_STEPS"]
 
 
@@ -148,7 +173,7 @@ def arr_type(the_type, model_name, case, address_net):
         elif(the_type   == "ALL_SAME_FIXED"):
             key_value   = "VALUE" + case
             fixed_value = DICT_MODEL[model_name][key_value]
-            arr_value   = arr_value + fixed_value
+            arr_value   = arr_value + float(fixed_value)
             
         elif(the_type   == "GIVEN_LIST"):
             key_value   = "VALUE" + case
@@ -327,9 +352,12 @@ def f_create_result_xlsx(net_number, rep, address_net):
         df_temp_run.loc[len(df_temp_run), :] = ['REPEAT',int(rep+1)]
 
         df_temp_model_1 = pd.DataFrame.from_dict(DICT_MODEL["FIXED_PAR"], orient='index').reset_index()
-        # print(df_temp_model_1)
+        print(df_temp_model_1)
+        input()
         df_temp_model_2 = pd.DataFrame.from_dict(DICT_MODEL[model_name], orient='index').reset_index()
-        # print(df_temp_model_2)
+        print(df_temp_model_2)
+        df_temp_model_1[0,0] = f"K = {5}, G = {7}"
+        input()
         df_temp_model = pd.concat([df_temp_model_1, df_temp_model_2], axis=0, ignore_index= True) 
         # print(df_temp_model)
         df_temp_model.loc[len(df_temp_model), :] = ['NodesToChange','']
@@ -462,9 +490,9 @@ def f_desync_run():
         for par_case in DICT_MODEL[model_name]["DSYNC_PARAMETERS"]:
             for manip_node in list_list_features_nodes[m]:
                 if (par_case == "K"):
-                    arr_models_k[m, manip_node] *= DICT_MODEL[model_name]["DSYNC_NEW_VALUE_K"]
+                    arr_models_k[m, manip_node] = DICT_MODEL[model_name]["DSYNC_NEW_VALUE_K"]
                 elif (par_case == "G"):
-                    arr_models_g[m, manip_node] *= DICT_MODEL[model_name]["DSYNC_NEW_VALUE_G"]
+                    arr_models_g[m, manip_node] = DICT_MODEL[model_name]["DSYNC_NEW_VALUE_G"]
     
     for dsu in range(start_step, end_step):
         if (dsu+1) % DICT_RUN["STEP_NOTIF"] == 0:
@@ -507,9 +535,9 @@ def f_end_sync(address_net):
                 if (DICT_MODEL[model_name]["SYNC_RESET_TYPE"] == "NEW_VALUE"):
                     if (par_case == "K"):
                         # print(arr_models_k[m, manip_node])
-                        arr_models_k[m, manip_node] *= DICT_MODEL[model_name]["SYNC_RESET_VALUE_K"]
+                        arr_models_k[m, manip_node] = DICT_MODEL[model_name]["SYNC_RESET_VALUE_K"]
                     elif (par_case == "G"):
-                        arr_models_g[m, manip_node] *= DICT_MODEL[model_name]["SYNC_RESET_VALUE_G"]
+                        arr_models_g[m, manip_node] = DICT_MODEL[model_name]["SYNC_RESET_VALUE_G"]
                         
                 # elif(DICT_MODEL[model_name]["SYNC_RESET_TYPE"] == "OLD_VALUE"):
                 #     if (par_case == "K"):

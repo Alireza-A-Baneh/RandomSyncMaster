@@ -21,29 +21,30 @@
     
     "MODELS" :{
         "FIXED_PAR":{
-            "NOTE_SYNC_FIXED_PARS"      : "K = 2, G =  0.3",
-            "NOTE_DESYNC_FIXED_PARS"    : "K = 0, G = -0.3",
+            "NOTE_SYNC_FIXED_PARS"      : "K =2 ,G = ",
+            "NOTE_DESYNC_FIXED_PARS"    : "K = ,G = ",
             "NUM_MODELS"                : 2,
             "L_NAME_MODELS"             : "Kuramoto",
-            "L_MODELS"                  : [ "KM-KN_GN_CC_05","KM-KN_GN_CC_20",
-                                            "KM-KN_GN_BC_05","KM-KN_GN_BC_20",
-                                            "KM-KN_GN_EC_05","KM-KN_GN_EC_20",
-                                            "KM-KN_GN_PC_05","KM-KN_GN_PC_20",
-                                            "KM-KN_GN_HC_05","KM-KN_GN_HC_20",
-                                            "KM-KN_GN_AC_05","KM-KN_GN_AC_20",
-                                            "KM-KN_GN_ODC_05","KM-KN_GN_ODC_20",
-                                            "KM-KN_GN_IDC_05","KM-KN_GN_IDC_20",
-                                            "KM-KN_GN_Rand_05","KM-KN_GN_Rand_20"]
+            "L_MODELS"                  : [ "KM_K=2_G=-8_CC=05","KM_K=2_G=-8_CC=10",
+                                            "KM_K=2_G=-8_CC=15","KM_K=2_G=-8_CC=20",
+                                            "KM_KN_GN_BC_05","KM_KN_GN_BC_20",
+                                            "KM_KN_GN_EC_05","KM_KN_GN_EC_20",
+                                            "KM_KN_GN_PC_05","KM_KN_GN_PC_20",
+                                            "KM_KN_GN_HC_05","KM_KN_GN_HC_20",
+                                            "KM_KN_GN_AC_05","KM_KN_GN_AC_20",
+                                            "KM_KN_GN_ODC_05","KM_KN_GN_ODC_20",
+                                            "KM_KN_GN_IDC_05","KM_KN_GN_IDC_20",
+                                            "KM_KN_GN_Rand_05","KM_KN_GN_Rand_20","KM_K0_G0_CC_P05_Rep01"]
         },
 
 
 
-        "KM-KN_GN_CC_05" :{
+        "KM_K=2_G=-8_CC=05" :{
             "TYPE_K"                    : "ALL_SAME_FIXED",
-            "VALUE_K"                   : 2,
+            "VALUE_K"                   : "",
 
             "TYPE_G"                    : "ALL_SAME_FIXED",
-            "VALUE_G"                   : 0.3,
+            "VALUE_G"                   : "",
 
             "TYPE_OMEGA"                : "NORMAL_RANDOM",
             "MEAN_OMEGA"                : 3,
@@ -62,23 +63,24 @@
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
             "DSYNC_FEATURE_CONDITION"   : "TOP",
             "DSYNC_PERCENT_NODES"       : 5,
-
             "DSYNC_PARAMETERS"          : ["K","G"],
-            "DSYNC_NEW_VALUE_K"         : -1,
-            "DSYNC_NEW_VALUE_G"         : -1,
+            "DSYNC_NEW_VALUE_K"         : 0,
+            "DSYNC_NEW_VALUE_G"         : -0.3,
 
             "SYNC_RESET_PARAMETERS"     : ["K","G"],
             "SYNC_RESET_TYPE"           : "NEW_VALUE",
-            "SYNC_RESET_VALUE_K"        : -1,
-            "SYNC_RESET_VALUE_G"        : -1
+            "SYNC_RESET_VALUE_K"        : 2,
+            "SYNC_RESET_VALUE_G"        : 0.3
         },
 
-        "KM-KN_GN_CC_10" :{
+        "KM_K=2_G=-8_CC=10" :{
             "TYPE_K"                    : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_K"              : 0,
+            "VALUE_K"                   : "",
 
             "TYPE_G"                    : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_G"              : 0,
+            "VALUE_G"                   : "",
 
             "TYPE_OMEGA"                : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_OMEGA"          : 0,
@@ -105,12 +107,14 @@
             "SYNC_RESET_VALUE_G"        : -1
         },
 
-        "KM-KN_GN_CC_15" :{
+        "KM_KN_GN_CC_15" :{
             "TYPE_K"                    : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_K"              : 0,
+            "VALUE_K"                   : "",
 
             "TYPE_G"                    : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_G"              : 0,
+            "VALUE_G"                   : "",
 
             "TYPE_OMEGA"                : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_OMEGA"          : 0,
@@ -137,7 +141,7 @@
             "SYNC_RESET_VALUE_G"        : -1
         },
         
-        "KM-KN_GN_CC_20" :{
+        "KM_KN_GN_CC_20" :{
             "TYPE_K"                    : "LIKE_OTHER_MODEL",
             "LIKE_MODEL_K"              : 0,
 
