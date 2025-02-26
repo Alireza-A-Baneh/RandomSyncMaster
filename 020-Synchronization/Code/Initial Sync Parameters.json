@@ -22,16 +22,82 @@
     "MODELS" :{
         "FIXED_PAR":{
             
-            "NUM_MODELS"    : 3,
-            "L_MODELS"      : [ "KMDS,K=2,G=-8,CC=05,TOP","KMDS,K=2,G=-8,CC=10,TOP", "KMDS,K=2,G=-8,CC=15,TOP","KMDS,K=2,G=-8,CC=20,TOP",
-                                "KMDS,K=2,G=-8,CC=05,TOP","KMDS,K=2,G=-8,CC=10,TOP", "KMDS,K=2,G=-8,CC=15,TOP","KMDS,K=2,G=-8,CC=20,TOP"],
+            "K": {
+                "TYPE"          : "ALL_SAME_FIXED",
+                "MEAN"          : "",
+                "STD"           : "",
+                "MIN"           : "",
+                "MAX"           : "",
+                "VALUE"         : "2",
+                "ALPHA"         : "",
+                "STEP"          : "",
+                "SHEET"         : "",
+                "COL_MAME"      : "",
+                "SCALE_TYPE"    : "",
+                "SCALE_VALUE"   : ""
+            },
+            "G": {
+                "TYPE"          : "ALL_SAME_FIXED",
+                "MEAN"          : "",
+                "STD"           : "",
+                "MIN"           : "",
+                "MAX"           : "",
+                "VALUE"         : "2",
+                "ALPHA"         : "",
+                "STEP"          : "",
+                "SHEET"         : "",
+                "COL_MAME"      : "",
+                "SCALE_TYPE"    : "",
+                "SCALE_VALUE"   : ""
+            },
+            "OMEGA": {
+                "TYPE"          : "NORMAL_RANDOM",
+                "MEAN"          : "3",
+                "STD"           : "0.5",
+                "MIN"           : "",
+                "MAX"           : "",
+                "VALUE"         : "",
+                "ALPHA"         : "",
+                "STEP"          : "",
+                "SHEET"         : "",
+                "COL_MAME"      : "",
+                "SCALE_TYPE"    : "",
+                "SCALE_VALUE"   : ""
+            },
+            "PHI": {
+                "TYPE"          : "UNIF_RANDOM",
+                "MEAN"          : "",
+                "STD"           : "",
+                "MIN"           : "-3",
+                "MAX"           : "3",
+                "VALUE"         : "",
+                "ALPHA"         : "",
+                "STEP"          : "",
+                "SHEET"         : "",
+                "COL_MAME"      : "",
+                "SCALE_TYPE"    : "",
+                "SCALE_VALUE"   : ""
+            },
+            "NOISE": {
+                "TYPE"          : "NORMAL_RANDOM",
+                "MEAN"          : "3",
+                "STD"           : "0.5",
+                "MIN"           : "",
+                "MAX"           : "",
+                "VALUE"         : "",
+                "ALPHA"         : "0.99",
+                "STEP"          : "300",
+                "SHEET"         : "",
+                "COL_MAME"      : "",
+                "SCALE_TYPE"    : "",
+                "SCALE_VALUE"   : ""
+            },
+            "NUM_MODELS"        : 3,
+            "L_MODELS"          : [ "KMDS,K=2,G=-8,CC=05,TOP","KMDS,K=2,G=-8,CC=10,TOP", "KMDS,K=2,G=-8,CC=15,TOP","KMDS,K=2,G=-8,CC=20,TOP",
+                                    "KMDS,K=2,G=-8,CC=05,TOP","KMDS,K=2,G=-8,CC=10,TOP", "KMDS,K=2,G=-8,CC=15,TOP","KMDS,K=2,G=-8,CC=20,TOP"],
 
-            "K"             : {"MEAN": 3,    "STD": 0.5,     "MIN": 0,   "MAX": 6,   "VALUE": 2,     "ALPHA": 0,        "STEP": 0   },
-            "G"             : {"MEAN": 3,    "STD": 0.5,     "MIN": 0,   "MAX": 6,   "VALUE": 0.3,   "ALPHA": 0,        "STEP": 0   },
-            "OMEGA"         : {"MEAN": 3,    "STD": 0.5,     "MIN": 0,   "MAX": 6,   "VALUE": 3,     "ALPHA": 0,        "STEP": 0   },
-            "PHI"           : {"MEAN": 3,    "STD": 0.5,     "MIN":-3,   "MAX": 3,   "VALUE": 3,     "ALPHA": 0,        "STEP": 0   },
-            "NOISE"         : {"MEAN": 3,    "STD": 0.5,     "MIN": 0,   "MAX": 0,   "VALUE": 0,     "ALPHA": 0.99,     "STEP": 300 }
-
+            "PARAMETERS"        : ["K","G","OMEGA","PHI","NOISE"],
+            "COPY_PARAMETER"    : ["COPY_K_FROM", "COPY_G_FROM", "COPY_OMEGA_FROM", "COPY_PHI_FROM", "COPY_NOISE_FROM"]
         },
 
 
@@ -39,24 +105,19 @@
         "KMDS,K=2,G=-8,CC=05,TOP" :{
 
             "COPY_K_FROM"               : "FIXED_PAR",
-            "TYPE_K"                    : "ALL_SAME_FIXED",
-            "K"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "K"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "COPY_G_FROM"               : "FIXED_PAR",
-            "TYPE_G"                    : "ALL_SAME_FIXED",
-            "G"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "G"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "COPY_OMEGA_FROM"           : "FIXED_PAR",
-            "TYPE_OMEGA"                : "NORMAL_RANDOM",
-            "OMEGA"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "OMEGA"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "COPY_PHI_FROM"             : "FIXED_PAR",
-            "TYPE_PHI"                  : "UNIF_RANDOM",
-            "PHI"                       : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "PHI"                       : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
             "COPY_NOISE_FROM"           : "FIXED_PAR",
-            "TYPE_NOISE"                : "NORMAL_RANDOM",
-            "NOISE"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "NOISE"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
             "DSYNC_PARAMETERS"          : ["K","G"],
@@ -74,25 +135,21 @@
 
         "KMDS,K=2,G=-8,CC=10,TOP" :{
 
-            "COPY_K_FROM"               : "FIXED_PAR",
-            "TYPE_K"                    : "ALL_SAME_FIXED",
-            "K"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
-            "COPY_G_FROM"               : "FIXED_PAR",
-            "TYPE_G"                    : "ALL_SAME_FIXED",
-            "G"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "COPY_K_FROM"               : "KMDS,K=2,G=-8,CC=05,TOP",
+            "K"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+
+            "COPY_G_FROM"               : "KMDS,K=2,G=-8,CC=05,TOP",
+            "G"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "COPY_OMEGA_FROM"           : "KMDS,K=2,G=-8,CC=05,TOP",
-            "TYPE_OMEGA"                : "NORMAL_RANDOM",
-            "OMEGA"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "OMEGA"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "COPY_PHI_FROM"             : "KMDS,K=2,G=-8,CC=05,TOP",
-            "TYPE_PHI"                  : "UNIF_RANDOM",
-            "PHI"                       : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "PHI"                       : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
             "COPY_NOISE_FROM"           : "KMDS,K=2,G=-8,CC=05,TOP",
-            "TYPE_NOISE"                : "NORMAL_RANDOM",
-            "NOISE"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "NOISE"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
             "DSYNC_PARAMETERS"          : ["K","G"],
@@ -110,25 +167,21 @@
 
         "KMDS,K=2,G=-8,CC=15,TOP" :{
 
-            "COPY_K_FROM"               : "FIXED_PAR",
-            "TYPE_K"                    : "ALL_SAME_FIXED",
-            "K"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
-            "COPY_G_FROM"               : "FIXED_PAR",
-            "TYPE_G"                    : "ALL_SAME_FIXED",
-            "G"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "COPY_K_FROM"               : "KMDS,K=2,G=-8,CC=05,TOP",
+            "K"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+
+            "COPY_G_FROM"               : "KMDS,K=2,G=-8,CC=05,TOP",
+            "G"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "COPY_OMEGA_FROM"           : "KMDS,K=2,G=-8,CC=05,TOP",
-            "TYPE_OMEGA"                : "NORMAL_RANDOM",
-            "OMEGA"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "OMEGA"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "COPY_PHI_FROM"             : "KMDS,K=2,G=-8,CC=05,TOP",
-            "TYPE_PHI"                  : "UNIF_RANDOM",
-            "PHI"                       : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "PHI"                       : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
             "COPY_NOISE_FROM"           : "KMDS,K=2,G=-8,CC=05,TOP",
-            "TYPE_NOISE"                : "NORMAL_RANDOM",
-            "NOISE"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            "NOISE"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
             "DSYNC_PARAMETERS"          : ["K","G"],
