@@ -21,156 +21,127 @@
     
     "MODELS" :{
         "FIXED_PAR":{
-            "NOTE_SYNC_FIXED_PARS"      : "K =2 ,G = ",
-            "NOTE_DESYNC_FIXED_PARS"    : "K = ,G = ",
-            "NUM_MODELS"                : 2,
-            "L_NAME_MODELS"             : "Kuramoto",
-            "L_MODELS"                  : [ "KM_K=2_G=-8_CC=05","KM_K=2_G=-8_CC=10",
-                                            "KM_K=2_G=-8_CC=15","KM_K=2_G=-8_CC=20",
-                                            "KM_KN_GN_BC_05","KM_KN_GN_BC_20",
-                                            "KM_KN_GN_EC_05","KM_KN_GN_EC_20",
-                                            "KM_KN_GN_PC_05","KM_KN_GN_PC_20",
-                                            "KM_KN_GN_HC_05","KM_KN_GN_HC_20",
-                                            "KM_KN_GN_AC_05","KM_KN_GN_AC_20",
-                                            "KM_KN_GN_ODC_05","KM_KN_GN_ODC_20",
-                                            "KM_KN_GN_IDC_05","KM_KN_GN_IDC_20",
-                                            "KM_KN_GN_Rand_05","KM_KN_GN_Rand_20","KM_K0_G0_CC_P05_Rep01"]
+            
+            "NUM_MODELS"    : 3,
+            "L_MODELS"      : [ "KMDS,K=2,G=-8,CC=05,TOP","KMDS,K=2,G=-8,CC=10,TOP", "KMDS,K=2,G=-8,CC=15,TOP","KMDS,K=2,G=-8,CC=20,TOP",
+                                "KMDS,K=2,G=-8,CC=05,TOP","KMDS,K=2,G=-8,CC=10,TOP", "KMDS,K=2,G=-8,CC=15,TOP","KMDS,K=2,G=-8,CC=20,TOP"],
+
+            "K"             : {"MEAN": 3,    "STD": 0.5,     "MIN": 0,   "MAX": 6,   "VALUE": 2,     "ALPHA": 0,        "STEP": 0   },
+            "G"             : {"MEAN": 3,    "STD": 0.5,     "MIN": 0,   "MAX": 6,   "VALUE": 0.3,   "ALPHA": 0,        "STEP": 0   },
+            "OMEGA"         : {"MEAN": 3,    "STD": 0.5,     "MIN": 0,   "MAX": 6,   "VALUE": 3,     "ALPHA": 0,        "STEP": 0   },
+            "PHI"           : {"MEAN": 3,    "STD": 0.5,     "MIN":-3,   "MAX": 3,   "VALUE": 3,     "ALPHA": 0,        "STEP": 0   },
+            "NOISE"         : {"MEAN": 3,    "STD": 0.5,     "MIN": 0,   "MAX": 0,   "VALUE": 0,     "ALPHA": 0.99,     "STEP": 300 }
+
         },
 
 
 
-        "KM_K=2_G=-8_CC=05" :{
+        "KMDS,K=2,G=-8,CC=05,TOP" :{
+
+            "COPY_K_FROM"               : "FIXED_PAR",
             "TYPE_K"                    : "ALL_SAME_FIXED",
-            "VALUE_K"                   : "",
+            "K"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
+            "COPY_G_FROM"               : "FIXED_PAR",
             "TYPE_G"                    : "ALL_SAME_FIXED",
-            "VALUE_G"                   : "",
+            "G"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
+            "COPY_OMEGA_FROM"           : "FIXED_PAR",
             "TYPE_OMEGA"                : "NORMAL_RANDOM",
-            "MEAN_OMEGA"                : 3,
-            "STD_OMEGA"                 : 0.5,
+            "OMEGA"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
+            "COPY_PHI_FROM"             : "FIXED_PAR",
             "TYPE_PHI"                  : "UNIF_RANDOM",
-            "MAX_PHI"                   : 3,
-            "MIN_PHI"                   : -3,
-
+            "PHI"                       : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            
+            "COPY_NOISE_FROM"           : "FIXED_PAR",
             "TYPE_NOISE"                : "NORMAL_RANDOM",
-            "MEAN_NOISE"                : 3,
-            "STD_NOISE"                 : 0.5,
-            "ALPHA_NOISE"               : 0.99,
-            "STEPS_NOISE"               : 300,
+            "NOISE"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
-            "DSYNC_FEATURE_CONDITION"   : "TOP",
-            "DSYNC_PERCENT_NODES"       : 5,
             "DSYNC_PARAMETERS"          : ["K","G"],
-            "DSYNC_NEW_VALUE_K"         : 0,
-            "DSYNC_NEW_VALUE_G"         : -0.3,
+            "DSYNC_FEATURE_CONDITION"   : "",
+            "DSYNC_PERCENT_NODES"       : "",
+            "DSYNC_NEW_VALUE_K"         : "",
+            "DSYNC_NEW_VALUE_G"         : "",
 
+            "SYNC_RESET_TYPE"           : "OLD_VALUE",
             "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_TYPE"           : "NEW_VALUE",
-            "SYNC_RESET_VALUE_K"        : 2,
-            "SYNC_RESET_VALUE_G"        : 0.3
+            "SYNC_RESET_VALUE_K"        : "",
+            "SYNC_RESET_VALUE_G"        : ""
         },
 
-        "KM_K=2_G=-8_CC=10" :{
-            "TYPE_K"                    : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_K"              : 0,
-            "VALUE_K"                   : "",
 
-            "TYPE_G"                    : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_G"              : 0,
-            "VALUE_G"                   : "",
+        "KMDS,K=2,G=-8,CC=10,TOP" :{
 
-            "TYPE_OMEGA"                : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_OMEGA"          : 0,
+            "COPY_K_FROM"               : "FIXED_PAR",
+            "TYPE_K"                    : "ALL_SAME_FIXED",
+            "K"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
-            "TYPE_PHI"                  : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_PHI"            : 0,
+            "COPY_G_FROM"               : "FIXED_PAR",
+            "TYPE_G"                    : "ALL_SAME_FIXED",
+            "G"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
-            "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_NOISE"          : 0,
-            "ALPHA_NOISE"               : 0.99,
-            "STEPS_NOISE"               : 300,
+            "COPY_OMEGA_FROM"           : "KMDS,K=2,G=-8,CC=05,TOP",
+            "TYPE_OMEGA"                : "NORMAL_RANDOM",
+            "OMEGA"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
-            "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
-            "DSYNC_FEATURE_CONDITION"   : "TOP",
-            "DSYNC_PERCENT_NODES"       : 10,
-
-            "DSYNC_PARAMETERS"          : ["K","G"],
-            "DSYNC_NEW_VALUE_K"         : -1,
-            "DSYNC_NEW_VALUE_G"         : -1,
-
-            "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_TYPE"           : "NEW_VALUE",
-            "SYNC_RESET_VALUE_K"        : -1,
-            "SYNC_RESET_VALUE_G"        : -1
-        },
-
-        "KM_KN_GN_CC_15" :{
-            "TYPE_K"                    : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_K"              : 0,
-            "VALUE_K"                   : "",
-
-            "TYPE_G"                    : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_G"              : 0,
-            "VALUE_G"                   : "",
-
-            "TYPE_OMEGA"                : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_OMEGA"          : 0,
-
-            "TYPE_PHI"                  : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_PHI"            : 0,
-
-            "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_NOISE"          : 0,
-            "ALPHA_NOISE"               : 0.99,
-            "STEPS_NOISE"               : 300,
+            "COPY_PHI_FROM"             : "KMDS,K=2,G=-8,CC=05,TOP",
+            "TYPE_PHI"                  : "UNIF_RANDOM",
+            "PHI"                       : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            
+            "COPY_NOISE_FROM"           : "KMDS,K=2,G=-8,CC=05,TOP",
+            "TYPE_NOISE"                : "NORMAL_RANDOM",
+            "NOISE"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
-            "DSYNC_FEATURE_CONDITION"   : "TOP",
-            "DSYNC_PERCENT_NODES"       : 15,
-
             "DSYNC_PARAMETERS"          : ["K","G"],
-            "DSYNC_NEW_VALUE_K"         : -1,
-            "DSYNC_NEW_VALUE_G"         : -1,
+            "DSYNC_FEATURE_CONDITION"   : "",
+            "DSYNC_PERCENT_NODES"       : "",
+            "DSYNC_NEW_VALUE_K"         : "",
+            "DSYNC_NEW_VALUE_G"         : "",
 
+            "SYNC_RESET_TYPE"           : "OLD_VALUE",
             "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_TYPE"           : "NEW_VALUE",
-            "SYNC_RESET_VALUE_K"        : -1,
-            "SYNC_RESET_VALUE_G"        : -1
+            "SYNC_RESET_VALUE_K"        : "",
+            "SYNC_RESET_VALUE_G"        : ""
         },
         
-        "KM_KN_GN_CC_20" :{
-            "TYPE_K"                    : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_K"              : 0,
 
-            "TYPE_G"                    : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_G"              : 0,
+        "KMDS,K=2,G=-8,CC=15,TOP" :{
 
-            "TYPE_OMEGA"                : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_OMEGA"          : 0,
+            "COPY_K_FROM"               : "FIXED_PAR",
+            "TYPE_K"                    : "ALL_SAME_FIXED",
+            "K"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
-            "TYPE_PHI"                  : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_PHI"            : 0,
+            "COPY_G_FROM"               : "FIXED_PAR",
+            "TYPE_G"                    : "ALL_SAME_FIXED",
+            "G"                         : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
-            "TYPE_NOISE"                : "LIKE_OTHER_MODEL",
-            "LIKE_MODEL_NOISE"          : 0,
-            "ALPHA_NOISE"               : 0.99,
-            "STEPS_NOISE"               : 300,
+            "COPY_OMEGA_FROM"           : "KMDS,K=2,G=-8,CC=05,TOP",
+            "TYPE_OMEGA"                : "NORMAL_RANDOM",
+            "OMEGA"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+
+            "COPY_PHI_FROM"             : "KMDS,K=2,G=-8,CC=05,TOP",
+            "TYPE_PHI"                  : "UNIF_RANDOM",
+            "PHI"                       : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
+            
+            "COPY_NOISE_FROM"           : "KMDS,K=2,G=-8,CC=05,TOP",
+            "TYPE_NOISE"                : "NORMAL_RANDOM",
+            "NOISE"                     : {"MEAN": "",    "STD": "",     "MIN": "",   "MAX": "",   "VALUE": "" ,    "ALPHA": "",    "STEP": "" },
 
             "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
-            "DSYNC_FEATURE_CONDITION"   : "TOP",
-            "DSYNC_PERCENT_NODES"       : 20,
-
             "DSYNC_PARAMETERS"          : ["K","G"],
-            "DSYNC_NEW_VALUE_K"         : -1,
-            "DSYNC_NEW_VALUE_G"         : -1,
+            "DSYNC_FEATURE_CONDITION"   : "",
+            "DSYNC_PERCENT_NODES"       : "",
+            "DSYNC_NEW_VALUE_K"         : "",
+            "DSYNC_NEW_VALUE_G"         : "",
 
+            "SYNC_RESET_TYPE"           : "OLD_VALUE",
             "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_TYPE"           : "NEW_VALUE",
-            "SYNC_RESET_VALUE_K"        : -1,
-            "SYNC_RESET_VALUE_G"        : -1
+            "SYNC_RESET_VALUE_K"        : "",
+            "SYNC_RESET_VALUE_G"        : ""
         }
+
     }
 }
