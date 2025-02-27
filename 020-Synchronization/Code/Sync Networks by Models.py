@@ -14,7 +14,7 @@ global CODE_DIR, NET_DIR, DEST_DIR
 global DICT_RUN
 global DICT_MODEL, DICT_NETWORKSglobal, list_result_xlsx_path, list_dict_phi
 global DF_GRAPH, NUM_NODES
-global NUM_MODELS, NAMES_MODELS, PARAMETERS, COPY_FROM
+global NUM_MODELS, NAMES_MODELS, PARAMETERS, COPY_PARAMETER_FROM
 global arr_models_omega, arr_models_phi, arr_models_ampli
 global arr_models_op_coherence, arr_models_op_phase
 global index_sheet
@@ -72,49 +72,47 @@ def f_sync_newfolder():
 
 def f_read_parameters():
     global DICT_NETWORKS, DICT_RUN, DICT_MODEL
-    global NUM_MODELS, LIST_MODELS, NUM_TOTAL_STEPS, PARAMETERS, COPY_FROM
+    global NUM_MODELS, LIST_MODELS, NUM_TOTAL_STEPS, PARAMETERS, COPY_PARAMETER_FROM
 
     with open(CODE_DIR+"\\Initial Sync Parameters.json", "r") as json_file:
         DATA = json.load(json_file)
         
     #Seperate data from json file in different dictionaries to (Easy to Access)
     DICT_NETWORKS   = DATA["NETWORKS"]
-    DICT_RUN        = DATA["Run"]
-    DICT_MODEL      = DATA["MODELS"]
-    
-    NUM_MODELS = DICT_MODEL["FIXED_PAR"]["NUM_MODELS"]
-    LIST_MODELS = DICT_MODEL["FIXED_PAR"]["L_MODELS"]
-    # print(DICT_MODEL["FIXED_PAR"]["L_MODELS"])
 
-    PARAMETERS = DICT_MODEL["FIXED_PAR"]["PARAMETERS"]
-    COPY_FROM = DICT_MODEL["FIXED_PAR"]["COPY_PARAMETER"]
-    # COPY_FROM = ["COPY_" + param + "_FROM" for param in PARAMETERS]
-    # input(parameters)
+    DICT_RUN        = DATA["Run"]
+    NUM_TOTAL_STEPS = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"] + DICT_RUN["END_SYNC_NUM_STEPS"]
+    
+    DICT_MODEL      = DATA["MODELS"]
+    NUM_MODELS      = DICT_MODEL["FIXED_PAR"]["NUM_MODELS"]
+    LIST_MODELS     = DICT_MODEL["FIXED_PAR"]["L_MODELS"]
+
+    # name of the parameters to use in code instade of hard coding
+    PARAMETERS          = DICT_MODEL["FIXED_PAR"]["PARAMETERS"]
+    COPY_PARAMETER_FROM = DICT_MODEL["FIXED_PAR"]["COPY_PARAMETER"]
+
 
     for i in range(NUM_MODELS):
-
-        M = DICT_MODEL["FIXED_PAR"]["L_MODELS"][i]
-        print("\n\n\n",M)
-        
-
+        model_name = LIST_MODELS[i]
         for j in range (len(PARAMETERS)):
-            name_copy = DICT_MODEL[M][COPY_FROM[j]]
-            value_par = PARAMETERS[j]
-            if (name_copy != "NONE"):
-                DICT_MODEL[M][PARAMETERS[j]] = DICT_MODEL[name_copy][value_par]
+            #to find where to copy from 
+            key_copy_from   = COPY_PARAMETER_FROM[j]
+            name_from       = DICT_MODEL[model_name][key_copy_from]
+            parameter       = PARAMETERS[j]
+            if (name_from != "NONE"):
+                # set parameter value from a an specific model or from fixed parameters
+                DICT_MODEL[model_name][parameter] = DICT_MODEL[name_from][parameter]
 
-        DK = float(re.sub(".*,K=(.*),G.*"   ,"\\1",M))
-        DG = float(re.sub(".*,G=(.*),.*,.*" ,"\\1",M))
-        DC = float(re.sub(".*,.*=(.*),.*"   ,"\\1",M))
-        DF = re.sub(".*,(.*)","\\1",M)
-        DICT_MODEL[M]["DSYNC_NEW_VALUE_K"]          = DK
-        DICT_MODEL[M]["DSYNC_NEW_VALUE_G"]          = DG
-        DICT_MODEL[M]["DSYNC_PERCENT_NODES"]        = DC
-        DICT_MODEL[M]["DSYNC_FEATURE_CONDITION"]    = DF
-        print(DICT_MODEL[M])
-        print("\n\n\n")
-    input()
-    NUM_TOTAL_STEPS = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"] + DICT_RUN["END_SYNC_NUM_STEPS"]
+        # to set desync parameters from name of the run
+        DK = float(re.sub(".*,K=(.*),G.*"   ,"\\1",model_name))
+        DG = float(re.sub(".*,G=(.*),.*,.*" ,"\\1",model_name))
+        DC = float(re.sub(".*,.*=(.*),.*"   ,"\\1",model_name))
+        DF = re.sub(".*,(.*)","\\1",model_name)
+        DICT_MODEL[model_name]["DSYNC_NEW_VALUE_K"]          = DK
+        DICT_MODEL[model_name]["DSYNC_NEW_VALUE_G"]          = DG
+        DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"]        = DC
+        DICT_MODEL[model_name]["DSYNC_FEATURE_CONDITION"]    = DF
+
 
 
 def f_address_input_networks():
@@ -149,32 +147,29 @@ def f_read_graph(g_name):
     NUM_NODES = max(max(DF_GRAPH["source"]), max(DF_GRAPH["target"])) + 1
      
     
-def arr_type(the_type, model_name, case, address_net):
+def arr_type(copy_from, the_type, model_name, case, address_net):
     
     arr_value = np.zeros(NUM_NODES)
 
-    if(model_name in LIST_MODELS):
-        print(model_name)
-        key_like  = "LIKE_MODEL" + case
-        like_model_index = DICT_MODEL[model_name][key_like]
-        input(like_model_index)
-        # list(x.keys()).index("c")
-        if (case == "_K"):
+    if(copy_from in LIST_MODELS):
+
+        like_model_index = list(DICT_MODEL.keys()).index(copy_from)
+
+        if (case == "K"):
             arr_value = arr_models_k[like_model_index,:]
-        if (case == "_G"):
+        if (case == "G"):
             arr_value = arr_models_g[like_model_index,:]
-        elif (case == "_OMEGA"):
+        elif (case == "OMEGA"):
             arr_value = arr_models_omega[like_model_index,:]
-        elif (case == "_PHI"):
+        elif (case == "PHI"):
             arr_value = arr_models_phi[like_model_index,:]
-        elif (case == "_AMPLI"):
+        elif (case == "AMPLI"):
             arr_value = arr_models_ampli[like_model_index,:]
-        elif (case == "_NOISE"):
+        elif (case == "NOISE"):
             arr_value = arr_models_noise[like_model_index,:]
             
     # elif(the_type not in LIST_MODELS):
     else:
-        arr_value = np.zeros(NUM_NODES)
         
         if(the_type     == "NORMAL_RANDOM"):
             random_std  = float(DICT_MODEL[model_name][case]["STD"])
@@ -185,7 +180,6 @@ def arr_type(the_type, model_name, case, address_net):
             random_max  = float(DICT_MODEL[model_name][case]["MAX"])
             random_min  = float(DICT_MODEL[model_name][case]["MIN"])
             arr_value   = np.random.uniform(low = random_min, high = random_max, size = NUM_NODES)
-            # print(arr_value)
         
         elif(the_type   == "ALL_SAME_RANDOM"):
             random_max  = float(DICT_MODEL[model_name][case]["MAX"])
@@ -201,34 +195,21 @@ def arr_type(the_type, model_name, case, address_net):
             arr_value   = arr_value + fixed_value
             
         elif(the_type   == "GIVEN_COLUMN"):
-            # key_scale       = "SCALE" + case
-            # key_scale_value = "VALUE_SCALE" + case
-            # key_sheet       = "SHEET_XLSX" + case
-            # key_column      = "COLUMN" + case
-            
             sheet_xlsx  = DICT_MODEL[model_name][case]["SHEET"]
             column_xlsx = DICT_MODEL[model_name][case]["COL_MAME"]
             scale_type  = DICT_MODEL[model_name][case]["SCALE_TYPE"]
             
             if(sheet_xlsx == "NODES"):
-
                 arr_value = pd.read_excel(NET_DIR + address_net, sheet_name = index_sheet-1)[column_xlsx]
-                
                 if (scale_type == "MAX"):
                     value_scale = float(DICT_MODEL[model_name][case]["SCALE_VALUE"])
                     arr_value   = np.array(arr_value) / np.max(arr_value) * value_scale
-                
                 elif (scale_type == "MEAN"):
                     value_scale = float(DICT_MODEL[model_name][case]["SCALE_VALUE"])
                     arr_value   = np.array(arr_value) / np.mean(arr_value) * value_scale
-                
                 else:
                     arr_value   = np.array(arr_value)
 
-                
-        print("HIiiiiiiiiiiiiiiiiiiii")
-    
-    print(arr_value)
     return arr_value
     
 
@@ -261,37 +242,41 @@ def f_initialize_models(address_net):
     arr_models_op_phase     = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
     arr_models_op_coherence = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
 
+
+
     for m in range(NUM_MODELS):
         
         model_name = LIST_MODELS[m]
         
         # for j in range (len(PARAMETERS)):
-        #     name_copy = DICT_MODEL[model_name][COPY_FROM[j]]
+        #     name_copy = DICT_MODEL[model_name][COPY_PARAMETER_FROM[j]]
         #     if(DICT_MODEL[model_name][name_copy] in LIST_MODELS):
         #         pass
 
 
 
 
-
-
-
+        copy_k_from      = DICT_MODEL[model_name]["COPY_K_FROM"]
+        copy_g_from      = DICT_MODEL[model_name]["COPY_G_FROM"]
+        copy_omega_from  = DICT_MODEL[model_name]["COPY_OMEGA_FROM"]
+        copy_phi_from    = DICT_MODEL[model_name]["COPY_PHI_FROM"]
+        copy_noise_from  = DICT_MODEL[model_name]["COPY_NOISE_FROM"]
 
         # To use the type of parameters
+        #ampli_type  = DICT_MODEL[model_name]["TYPE_AMPLI"]
         k_type      = DICT_MODEL[model_name]["K"]["TYPE"]
         g_type      = DICT_MODEL[model_name]["G"]["TYPE"]
         omega_type  = DICT_MODEL[model_name]["OMEGA"]["TYPE"]
         phi_type    = DICT_MODEL[model_name]["PHI"]["TYPE"]
-        #ampli_type  = DICT_MODEL[model_name]["TYPE_AMPLI"]
         noise_type  = DICT_MODEL[model_name]["NOISE"]["TYPE"]
         
         # To set initial values based on .jason file
-        arr_models_k[m,:]       = arr_type(k_type, model_name, "K", address_net)
-        arr_models_g[m,:]       = arr_type(g_type, model_name, "G", address_net)
-        arr_models_omega[m,:]   = arr_type(omega_type, model_name, "OMEGA", address_net)
-        arr_models_phi[m,:]     = arr_type(phi_type, model_name, "PHI", address_net)
         #arr_models_ampli[m,:]   = arr_type(ampli_type, model_name, "_AMPLI", address_net)
-        arr_models_noise[m,:]   = arr_type(noise_type, model_name, "NOISE", address_net)
+        arr_models_k[m,:]       = arr_type(copy_k_from    , k_type,     model_name, "K", address_net)
+        arr_models_g[m,:]       = arr_type(copy_g_from    , g_type,     model_name, "G", address_net)
+        arr_models_omega[m,:]   = arr_type(copy_omega_from, omega_type, model_name, "OMEGA", address_net)
+        arr_models_phi[m,:]     = arr_type(copy_phi_from  , phi_type,   model_name, "PHI", address_net)
+        arr_models_noise[m,:]   = arr_type(copy_noise_from, noise_type, model_name, "NOISE", address_net)
         
         # to create a dict for saving as xlsx
         list_dict_phi.append(dict())
@@ -337,12 +322,10 @@ def f_select_feature(g_name):
         elif (condition == "RANDOM"): 
             num_nodes_to_change = int(DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"] / 100 * NUM_NODES)
             nodes = np.random.randint(0,NUM_NODES,(num_nodes_to_change))
-            
-        # print(condition)
-        # print(len(nodes))
+
         list_Models_features.append(feature_name)
         list_list_features_nodes.append(nodes)
-        # input()
+
 
 
 
@@ -375,10 +358,10 @@ def f_create_result_xlsx(net_number, rep, address_net):
         df_temp_run.loc[len(df_temp_run), :] = ['REPEAT',int(rep+1)]
 
         df_temp_model_1 = pd.DataFrame.from_dict(DICT_MODEL["FIXED_PAR"], orient='index').reset_index()
-        print(df_temp_model_1)
+        # print(df_temp_model_1)
         # input()
         df_temp_model_2 = pd.DataFrame.from_dict(DICT_MODEL[model_name], orient='index').reset_index()
-        print(df_temp_model_2)
+        # print(df_temp_model_2)
         df_temp_model_1[0,0] = f"K = {5}, G = {7}"
         # input()
         df_temp_model = pd.concat([df_temp_model_1, df_temp_model_2], axis=0, ignore_index= True) 
@@ -498,7 +481,7 @@ def f_start_sync():
             #if(NAMES_MODELS[n] == "Kuramoto"):
             f_k_models_op_sync(n, su)
     
-    print("")
+    # print("")
         
 
 def f_desync_run():
@@ -548,7 +531,7 @@ def f_end_sync(address_net):
 
     start_step = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"]
     end_step = NUM_TOTAL_STEPS
-    print("")
+    # print("")
     
     for m in range(NUM_MODELS):   
         model_name = LIST_MODELS[m]
