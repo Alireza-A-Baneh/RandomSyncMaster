@@ -84,7 +84,7 @@ def f_read_parameters():
     NUM_TOTAL_STEPS = DICT_RUN["START_SYNC_NUM_STEPS"] + DICT_RUN["De_SYNC_NUM_STEPS"] + DICT_RUN["END_SYNC_NUM_STEPS"]
     
     DICT_MODEL      = DATA["MODELS"]
-    NUM_MODELS      = DICT_MODEL["FIXED_PAR"]["NUM_MODELS"]
+    NUM_MODELS      = int(DICT_MODEL["FIXED_PAR"]["NUM_MODELS"])
     LIST_MODELS     = DICT_MODEL["FIXED_PAR"]["L_MODELS"]
 
     # name of the parameters to use in code instade of hard coding
@@ -153,7 +153,7 @@ def arr_type(copy_from, the_type, model_name, case, address_net):
 
     if(copy_from in LIST_MODELS):
 
-        like_model_index = list(DICT_MODEL.keys()).index(copy_from)
+        like_model_index = list(DICT_MODEL.keys()).index(copy_from)-1
 
         if (case == "K"):
             arr_value = arr_models_k[like_model_index,:]
@@ -357,12 +357,22 @@ def f_create_result_xlsx(net_number, rep, address_net):
         df_temp_run = pd.DataFrame.from_dict(DICT_RUN, orient='index').reset_index()
         df_temp_run.loc[len(df_temp_run), :] = ['REPEAT',int(rep+1)]
 
-        df_temp_model_1 = pd.DataFrame.from_dict(DICT_MODEL["FIXED_PAR"], orient='index').reset_index()
+
+        # for key, value in DICT_MODEL["FIXED_PAR"].items():
+        #     if not isinstance(value, dict):
+        #         print(f"Warning: Key '{key}' has a non-dictionary value: {value} (Type: {type(value)})")
+
+        # print(pd.DataFrame.from_dict(DICT_MODEL["FIXED_PAR"], orient='index'))
+        # print(type(DICT_MODEL["FIXED_PAR"]))
+        # print(DICT_MODEL["FIXED_PAR"][1])
+        DICT_MODEL["FIXED_PAR"]["NAME_OF_THIS_MODEL"] = model_name
+        dict1 = dict(list(DICT_MODEL["FIXED_PAR"].items())[:3])
+        df_temp_model_1 = pd.DataFrame.from_dict(dict1, orient='index').reset_index()
         # print(df_temp_model_1)
         # input()
         df_temp_model_2 = pd.DataFrame.from_dict(DICT_MODEL[model_name], orient='index').reset_index()
         # print(df_temp_model_2)
-        df_temp_model_1[0,0] = f"K = {5}, G = {7}"
+        # df_temp_model_1[0,0] = f"K = {5}, G = {7}"
         # input()
         df_temp_model = pd.concat([df_temp_model_1, df_temp_model_2], axis=0, ignore_index= True) 
         # print(df_temp_model)
@@ -399,7 +409,7 @@ def f_update_result_xlsx():
         df_phi = pd.concat([df_time, df_phi], ignore_index=True)
         
         df_noise = pd.DataFrame(list_dict_noise[m])
-        df_step = df_time.iloc[:,1:(DICT_MODEL[LIST_MODELS[m]]["STEPS_NOISE"]+1)]
+        df_step = df_time.iloc[:,1:(int(DICT_MODEL[LIST_MODELS[m]]["NOISE"]["STEP"])+1)]
         df_noise.columns = df_step.columns.copy()
 
         df_noise = pd.concat([df_step, df_noise], ignore_index=True)
@@ -435,7 +445,7 @@ def f_k_model(model, update, dt, node, l_neighbors):
     temp_arr_phi[model, node] = arr_models_phi[model, node] + diff_phi * dt 
     
     if (node == (NUM_NODES-1)):
-        if(update <= DICT_MODEL[LIST_MODELS[model]]["STEPS_NOISE"]):
+        if(update <= int(DICT_MODEL[LIST_MODELS[model]]["NOISE"]["STEP"])):
             temp_arr_phi[model, :] = temp_arr_phi[model, :] + arr_models_noise[model,:] 
             
         arr_models_phi[model, :] = temp_arr_phi[model, :].copy()
@@ -467,15 +477,15 @@ def f_start_sync():
         for n in range(NUM_MODELS):
             list_dict_phi[n][col_name] = arr_models_phi[n,:].copy()
             
-            if(su <= DICT_MODEL[LIST_MODELS[n]]["STEPS_NOISE"]):
+            if(su <= int(DICT_MODEL[LIST_MODELS[n]]["NOISE"]["STEP"])):
                 list_dict_noise[n][col_name] = arr_models_noise[n,:].copy()
-                noise_type = DICT_MODEL[LIST_MODELS[n]]["TYPE_NOISE"]
-                
+                noise_type = DICT_MODEL[LIST_MODELS[n]]["NOISE"]["TYPE"]
+                noise_copy_from = DICT_MODEL[LIST_MODELS[n]]["COPY_NOISE_FROM"]
                 # if(noise_type == "NORMAL_RANDOM"):
                 #     DICT_MODEL[LIST_MODELS[n]]["STD_NOISE"] *= DICT_MODEL[LIST_MODELS[n]]["ALPHA_NOISE"]
                     
-                arr_models_noise[n,:]  = arr_type(noise_type, LIST_MODELS[n], "_NOISE","NoAddress") 
-                arr_models_noise[n,:] *= DICT_MODEL[LIST_MODELS[n]]["ALPHA_NOISE"]
+                arr_models_noise[n,:]  = arr_type(noise_copy_from, noise_type, LIST_MODELS[n], "NOISE","NoAddress") 
+                arr_models_noise[n,:] *= float(DICT_MODEL[LIST_MODELS[n]]["NOISE"]["ALPHA"])
 
             # input()
             #if(NAMES_MODELS[n] == "Kuramoto"):
