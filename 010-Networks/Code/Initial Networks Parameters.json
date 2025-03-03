@@ -14,8 +14,8 @@
     },
 
     "NETWORKS" :{
-        "NUM_TOPOLOGY"      : 3,
-        "NUM_REP"           : 20,
+        "NUM_TOPOLOGY"      : 1,
+        "NUM_REP"           : 3,
         "L_NAME_TOPOLOGY"   : ["BA","WS","ER","BA","WS"],
         "L_NAME_NET"        : ["BA_Graph","WS_Graph","ER_Graph","BA_Graph","BA_Graph","WS_Graph","Star_Graph"],
         "L_NUM_NODES"       : [200,200,200,200],
