@@ -101,14 +101,53 @@ def f_graph_weight(w_type, w_const, w_min, w_max, num_edges):
 def f_create_nodes_cent_atr_xlsx (new_xlsx_path, NUM_REP, THE_GRAPH, g_dircted):
     
     #to add new sheet to xlsx we create new data frame
-    df_atributes = pd.DataFrame()
-    df_atributes["Id"] = pd.DataFrame(sorted(list(THE_GRAPH.nodes)))
-    df_atributes["Label"] = pd.DataFrame(sorted(list(THE_GRAPH.nodes)))
-    df_atributes["DegreeCent"] = pd.DataFrame(sorted(nx.degree_centrality(THE_GRAPH).items()))[[1]]
-    df_atributes["ClosenessCent"] = pd.DataFrame(sorted(nx.closeness_centrality(THE_GRAPH).items()))[[1]]
-    df_atributes["BetweennessCent"] = pd.DataFrame(sorted(nx.betweenness_centrality(THE_GRAPH).items()))[[1]]
-    df_atributes["EigenvectorCent"] = pd.DataFrame(sorted(nx.eigenvector_centrality_numpy(THE_GRAPH).items()))[[1]]
-    
+    df_attributes = pd.DataFrame()
+
+    # Id and Lables
+    df_attributes["Id"]                 = pd.DataFrame(sorted(list(THE_GRAPH.nodes)))
+    df_attributes["Label"]              = pd.DataFrame([f"{i:03d}" for i in (sorted(list(THE_GRAPH.nodes)))])
+
+    # DegreeCent
+    df_attributes["DegreeCent"]         = pd.DataFrame(sorted(nx.degree_centrality(THE_GRAPH).items()))[[1]]
+    df_attributes["InDegree"]           = pd.DataFrame(sorted(dict(THE_GRAPH.in_degree()).items()))[[1]]
+    df_attributes["OutDegree"]          = pd.DataFrame(sorted(dict(THE_GRAPH.out_degree()).items()))[[1]]
+    df_attributes["Degree"]             = pd.DataFrame(sorted(dict(THE_GRAPH.degree()).items()))[[1]]
+
+    df_attributes["WeInDegree"]         = pd.DataFrame(sorted(dict(THE_GRAPH.in_degree(weight="weight")).items()))[[1]]
+    df_attributes["WeOutDegree"]        = pd.DataFrame(sorted(dict(THE_GRAPH.out_degree(weight="weight")).items()))[[1]]
+    df_attributes["WeDegree"]           = df_attributes["WeInDegree"] + df_attributes["WeOutDegree"]
+
+    df_attributes["AveWeInDegree"]      = df_attributes["WeInDegree"] / df_attributes["InDegree"]
+    df_attributes["AveWeOutDegree"]     = df_attributes["WeOutDegree"] / df_attributes["OutDegree"]
+    df_attributes["AveWeDegree"]        = df_attributes["WeDegree"] / df_attributes["Degree"]
+
+    # Closeness Centrality
+    df_attributes["ClosenessCent"]      = pd.DataFrame(sorted(nx.closeness_centrality(THE_GRAPH).items()))[[1]]
+    df_attributes["WeClosenessCent"]    = pd.DataFrame(sorted(nx.closeness_centrality(THE_GRAPH, distance="weight").items()))[[1]]
+
+    # Harmonic Closeness Centrality
+    df_attributes["HarmonicCent"]       = pd.DataFrame(sorted(nx.harmonic_centrality(THE_GRAPH).items()))[[1]]
+
+    # Betweenness Centrality
+    df_attributes["BetweennessCent"]    = pd.DataFrame(sorted(nx.betweenness_centrality(THE_GRAPH).items()))[[1]]
+    df_attributes["WeBetweennessCent"]  = pd.DataFrame(sorted(nx.betweenness_centrality(THE_GRAPH, weight="weight").items()))[[1]]
+
+    # Eigenvector Centrality
+    df_attributes["EigenvectorCent"]    = pd.DataFrame(sorted(nx.eigenvector_centrality_numpy(THE_GRAPH).items()))[[1]]
+    df_attributes["WeEigenvectorCent"]  = pd.DataFrame(sorted(nx.eigenvector_centrality_numpy(THE_GRAPH, weight="weight").items()))[[1]]
+
+    # PageRank
+    df_attributes["PageRanks"]          = pd.DataFrame(sorted(nx.pagerank(THE_GRAPH).items()))[[1]]
+
+    # HITS Algorithm
+    authority, hub                      = nx.hits(THE_GRAPH, max_iter=1000, normalized=True)
+    df_attributes["Authority"]          = pd.DataFrame(sorted(authority.items()))[[1]]
+    df_attributes["Hub"]                = pd.DataFrame(sorted(hub.items()))[[1]]
+
+    # Clustering Coefficient
+    df_attributes["Clustering"]         = pd.DataFrame(sorted(nx.clustering(THE_GRAPH).items()))[[1]]
+
+
     if (g_dircted == "Undir"):
         sh_name = f"Nodes_Undir_Rep{str(NUM_REP+1)}"
         
@@ -117,18 +156,12 @@ def f_create_nodes_cent_atr_xlsx (new_xlsx_path, NUM_REP, THE_GRAPH, g_dircted):
         
     elif (g_dircted == "DataSet"):
         sh_name = "Nodes_Info"
-        return df_atributes
+        return df_attributes
         
     with pd.ExcelWriter(new_xlsx_path, mode = "a", engine = "openpyxl") as writer:
-        df_atributes.to_excel(writer, sheet_name= sh_name, index = False)
+        df_attributes.to_excel(writer, sheet_name= sh_name, index = False)
         
         
-
-
-
-
-
-
 
 def f_creat_networks():
     
@@ -169,7 +202,7 @@ def f_creat_networks():
 
         # To creat an empty xlsx file
         # new_xlsx_path = DEST_DIR + f"\\T{n}_{t_name}_N={g_nodes}_K={g_ave_deg}_P={g_p_rw}_D={g_dircted}_(id = {TIME_ID}).xlsx"
-        new_xlsx_path = DEST_DIR + f"\\Net-{n+1}-{t_name}-{TIME_ID}.xlsx"
+        new_xlsx_path = DEST_DIR + f"\\Net-{n+1:03d}-{t_name}-{TIME_ID}.xlsx"
         wb = openpyxl.Workbook()
         wb.save(new_xlsx_path)
         
@@ -246,9 +279,13 @@ def f_creat_networks():
                 df_dir_edgelist = df_dir_edgelist.sort_values(by=['source', 'target'])
                 
                 df_dir_edgelist.reset_index(drop=True, inplace=True)
-             
-                THE_DIR_GRAPH = nx.from_pandas_edgelist(df_dir_edgelist)
                 
+                THE_DIR_GRAPH = nx.from_pandas_edgelist(df_dir_edgelist, source="source", target="target", edge_attr="weight", create_using=nx.DiGraph())
+                
+                # THE_DIR_GRAPH = nx.from_pandas_edgelist(df_dir_edgelist)
+                
+                # print(THE_DIR_GRAPH.edges(data=True))
+                # input()
                 f_create_nodes_cent_atr_xlsx(new_xlsx_path, r, THE_DIR_GRAPH, "Dir")
                 
                 sh_name = f"Edge_Dir_Rep{str(r+1)}"
@@ -282,7 +319,7 @@ def f_read_dataset():
         # set new edge list to the graph
         THE_GRAPH = nx.from_pandas_edgelist(DF_Edges)
         
-        df_nods_attr = f_create_nodes_cent_atr_xlsx("no_addres", "no_repeat", THE_GRAPH, "DataSet")
+        df_nods_attr = f_create_nodes_cent_atr_xlsx("no_addres", "no_repeat", THE_GRAPH, "DataSet","no_weight")
         
         DF_Nodes["DegreeCent"] = df_nods_attr["DegreeCent"]
         new_name = ds_address.split('.xlsx')[0]
