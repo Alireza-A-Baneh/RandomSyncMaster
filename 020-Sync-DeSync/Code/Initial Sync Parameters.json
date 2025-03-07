@@ -1,8 +1,8 @@
 {
     "NETWORKS" :{
-        "nothing"               : ["ALL_NETWORKS","WS_Graph.xlsx","ALL_NETWORKS",2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40],
-        "L_NAME_NET"            : ["ALL_NETWORKS"],
-        "ALL_NETWORKS"          : [2],
+        "nothing" : ["ALL_NETWORKS","WS_Graph.xlsx","ALL_NETWORKS",2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40],
+        "L_NAME_NET"  : ["ALL_NETWORKS"],
+        "ALL_NETWORKS": [2],
 
         "Net-1-WS-230710-165313.xlsx": [2],
         "file Name.xlsx/csv": [2]
@@ -12,7 +12,7 @@
         "dt": 0.01,
         "STEP_NOTIF": 100,
         "ROUND_DIGITS": 4,
-        "TOTAL_REPEAT": 2,
+        "TOTAL_REPEAT": 1,
         "START_SYNC_NUM_STEPS": 1000,
         "De_SYNC_NUM_STEPS": 1500,
         "END_SYNC_NUM_STEPS": 1000
@@ -21,178 +21,143 @@
     
     "MODELS" :{
         "FIXED_PAR":{
-            "NUM_MODELS"        : "2",
-            "L_MODELS"          : ["KMDS,K=0,G=0,CC=20,TOP", "KMDS,K=0,G=0,CC=20,TOP"],
-            "NAME_OF_THIS_MODEL": "",
-            "PARAMETERS"        : ["K","G","OMEGA","PHI","NOISE"],
-            "COPY_PARAMETER"    : ["COPY_K_FROM", "COPY_G_FROM", "COPY_OMEGA_FROM", "COPY_PHI_FROM", "COPY_NOISE_FROM"],
+            "NUM_MODELS":   "22",
+            "L_MODELS"  : [ "KMDS,K=0,G=0,DegreeCent=05,TOP"        , "KMDS,K=0,G=0,DegreeCent=20,TOP",
+                            "KMDS,K=0,G=0,InDegree=05,TOP"          , "KMDS,K=0,G=0,InDegree=20,TOP",
+                            "KMDS,K=0,G=0,OutDegree=05,TOP"         , "KMDS,K=0,G=0,OutDegree=20,TOP",
+                            "KMDS,K=0,G=0,Degree=05,TOP"            , "KMDS,K=0,G=0,Degree=20,TOP",
+                            "KMDS,K=0,G=0,WeInDegree=05,TOP"        , "KMDS,K=0,G=0,WeInDegree=20,TOP",
+                            "KMDS,K=0,G=0,WeOutDegree=05,TOP"       , "KMDS,K=0,G=0,WeOutDegree=20,TOP",
+                            "KMDS,K=0,G=0,WeDegree=05,TOP"          , "KMDS,K=0,G=0,WeDegree=20,TOP",
+                            "KMDS,K=0,G=0,AveWeInDegree=05,TOP"     , "KMDS,K=0,G=0,AveWeInDegree=20,TOP",
+                            "KMDS,K=0,G=0,AveWeOutDegree=05,TOP"    , "KMDS,K=0,G=0,AveWeOutDegree=20,TOP",
+                            "KMDS,K=0,G=0,AveWeDegree=05,TOP"       , "KMDS,K=0,G=0,AveWeDegree=20,TOP",
 
-            "K": {
-                "TYPE"          : "ALL_SAME_FIXED",
-                "MEAN"          : "",
-                "STD"           : "",
-                "MIN"           : "",
-                "MAX"           : "",
-                "VALUE"         : "2",
-                "ALPHA"         : "",
-                "STEP"          : "",
-                "SHEET"         : "",
-                "COL_MAME"      : "",
-                "SCALE_TYPE"    : "",
-                "SCALE_VALUE"   : ""
-            },
-            "G": {
-                "TYPE"          : "ALL_SAME_FIXED",
-                "MEAN"          : "",
-                "STD"           : "",
-                "MIN"           : "",
-                "MAX"           : "",
-                "VALUE"         : "0.3",
-                "ALPHA"         : "",
-                "STEP"          : "",
-                "SHEET"         : "",
-                "COL_MAME"      : "",
-                "SCALE_TYPE"    : "",
-                "SCALE_VALUE"   : ""
-            },
-            "OMEGA": {
-                "TYPE"          : "NORMAL_RANDOM",
-                "MEAN"          : "3",
-                "STD"           : "0.5",
-                "MIN"           : "",
-                "MAX"           : "",
-                "VALUE"         : "",
-                "ALPHA"         : "",
-                "STEP"          : "",
-                "SHEET"         : "",
-                "COL_MAME"      : "",
-                "SCALE_TYPE"    : "",
-                "SCALE_VALUE"   : ""
-            },
-            "PHI": {
-                "TYPE"          : "UNIF_RANDOM",
-                "MEAN"          : "",
-                "STD"           : "",
-                "MIN"           : "-3",
-                "MAX"           : "3",
-                "VALUE"         : "",
-                "ALPHA"         : "",
-                "STEP"          : "",
-                "SHEET"         : "",
-                "COL_MAME"      : "",
-                "SCALE_TYPE"    : "",
-                "SCALE_VALUE"   : ""
-            },
-            "NOISE": {
-                "TYPE"          : "NORMAL_RANDOM",
-                "MEAN"          : "3",
-                "STD"           : "0.5",
-                "MIN"           : "",
-                "MAX"           : "",
-                "VALUE"         : "",
-                "ALPHA"         : "0.99",
-                "STEP"          : "300",
-                "SHEET"         : "",
-                "COL_MAME"      : "",
-                "SCALE_TYPE"    : "",
-                "SCALE_VALUE"   : ""
-            }
+                            "KMDS,K=0,G=0,ClosenessCent=05,TOP"     , "KMDS,K=0,G=0,ClosenessCent=20,TOP",
+                            "KMDS,K=0,G=0,WeClosenessCent=05,TOP"   , "KMDS,K=0,G=0,WeClosenessCent=20,TOP",
+                            "KMDS,K=0,G=0,HarmonicCent=05,TOP"      , "KMDS,K=0,G=0,HarmonicCent=20,TOP",
+                            "KMDS,K=0,G=0,BetweennessCent=05,TOP"   , "KMDS,K=0,G=0,BetweennessCent=20,TOP",
+                            "KMDS,K=0,G=0,WeBetweennessCent=05,TOP" , "KMDS,K=0,G=0,WeBetweennessCent=20,TOP",
+                            "KMDS,K=0,G=0,EigenvectorCent=05,TOP"   , "KMDS,K=0,G=0,EigenvectorCent=20,TOP",
+                            "KMDS,K=0,G=0,WeEigenvectorCent=05,TOP" , "KMDS,K=0,G=0,WeEigenvectorCent=20,TOP",
+                            "KMDS,K=0,G=0,PageRanks=05,TOP"         , "KMDS,K=0,G=0,PageRanks=20,TOP",
+                            "KMDS,K=0,G=0,Authority=05,TOP"         , "KMDS,K=0,G=0,Authority=20,TOP",
+                            "KMDS,K=0,G=0,Hub=05,TOP"               , "KMDS,K=0,G=0,Hub=20,TOP",
+
+                            "KMDS,K=0,G=0,Clustering=05,TOP"        , "KMDS,K=0,G=0,Clustering=20,TOP",
+                            "KMDS,K=0,G=0,Clustering=05,RANDOM"     , "KMDS,K=0,G=0,Clustering=20,RANDOM"],
+
+            "NAME_OF_THIS_MODEL":   "",
+            "PARAMETERS"        : [ "K","G","OMEGA","PHI","NOISE"],
+            "COPY_PARAMETER"    : [ "COPY_K_FROM", "COPY_G_FROM", "COPY_OMEGA_FROM", "COPY_PHI_FROM", "COPY_NOISE_FROM"],
+            
+            "L_Centralities"    : [ "DegreeCent"     ,"InDegree"         ,"OutDegree"        ,"Degree", "WeInDegree",
+                                    "WeOutDegree"    ,"WeDegree"         ,"AveWeInDegree"    ,"AveWeOutDegree",
+                                    "AveWeDegree"    ,"ClosenessCent"    ,"WeClosenessCent"  ,"HarmonicCent",
+                                    "BetweennessCent","WeBetweennessCent","EigenvectorCent"  ,"WeEigenvectorCent",
+                                    "PageRanks"      ,"Authority"        ,"Hub"              ,"Clustering"],
+
+            "K"     :{"TYPE":"ALL_SAME_FIXED"  ,"MEAN":"" ,"STD":""     ,"MIN":""     ,"MAX":""     ,"VALUE":"2"   ,"ALPHA":""    ,"STEP":""     ,"SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "G"     :{"TYPE":"ALL_SAME_FIXED"  ,"MEAN":"" ,"STD":""     ,"MIN":""     ,"MAX":""     ,"VALUE":"0.3" ,"ALPHA":""    ,"STEP":""     ,"SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "OMEGA" :{"TYPE":"NORMAL_RANDOM"   ,"MEAN":"3","STD":"0.5"  ,"MIN":""     ,"MAX":""     ,"VALUE":""    ,"ALPHA":""    ,"STEP":""     ,"SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "PHI"   :{"TYPE":"UNIF_RANDOM"     ,"MEAN":"" ,"STD":""     ,"MIN":"-3"   ,"MAX":"3"    ,"VALUE":""    ,"ALPHA":""    ,"STEP":""     ,"SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "NOISE" :{"TYPE":"NORMAL_RANDOM"   ,"MEAN":"3","STD":"0.5"  ,"MIN":""     ,"MAX":""     ,"VALUE":""    ,"ALPHA":"0.99","STEP":"300"  ,"SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""}
         },
 
 
 
-        "KMDS,K=0,G=0,CC=20,TOP" :{
+        "KMDS,K=0,G=0,DegreeCent=05,TOP" :{
 
-            "COPY_K_FROM"               : "FIXED_PAR",
-            "K"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_K_FROM" : "FIXED_PAR",
+            "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM"               : "FIXED_PAR",
-            "G"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_G_FROM" : "FIXED_PAR",
+            "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM"           : "FIXED_PAR",
-            "OMEGA"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_OMEGA_FROM" : "FIXED_PAR",
+            "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM"             : "FIXED_PAR",
-            "PHI"                       : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_PHI_FROM": "FIXED_PAR",
+            "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM"           : "FIXED_PAR",
-            "NOISE"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_NOISE_FROM" : "FIXED_PAR",
+            "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
-            "DSYNC_PARAMETERS"          : ["K","G"],
-            "DSYNC_FEATURE_CONDITION"   : "",
-            "DSYNC_PERCENT_NODES"       : "",
-            "DSYNC_NEW_VALUE_K"         : "",
-            "DSYNC_NEW_VALUE_G"         : "",
+            "DSYNC_FEATURE_COLNAME" : "",
+            "DSYNC_PARAMETERS": ["K","G"],
+            "DSYNC_FEATURE_CONDITION": "",
+            "DSYNC_PERCENT_NODES" : "",
+            "DSYNC_NEW_VALUE_K": "",
+            "DSYNC_NEW_VALUE_G": "",
 
-            "SYNC_RESET_TYPE"           : "OLD_VALUE",
-            "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_VALUE_K"        : "",
-            "SYNC_RESET_VALUE_G"        : ""
+            "SYNC_RESET_TYPE" : "OLD_VALUE",
+            "SYNC_RESET_PARAMETERS" : ["K","G"],
+            "SYNC_RESET_VALUE_K"  : "",
+            "SYNC_RESET_VALUE_G"  : ""
         },
 
 
-        "KMDS,K=0,G=0,CC=202,TOP" :{
+        "KMDS,K=0,G=0,InDegree=20,TOP" :{
 
 
-            "COPY_K_FROM"               : "KMDS,K=0,G=0,CC=05,TOP",
-            "K"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM"               : "KMDS,K=0,G=0,CC=05,TOP",
-            "G"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM"           : "KMDS,K=0,G=0,CC=05,TOP",
-            "OMEGA"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM"             : "KMDS,K=0,G=0,CC=05,TOP",
-            "PHI"                       : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM"           : "KMDS,K=0,G=0,CC=05,TOP",
-            "NOISE"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
-            "DSYNC_PARAMETERS"          : ["K","G"],
-            "DSYNC_FEATURE_CONDITION"   : "",
-            "DSYNC_PERCENT_NODES"       : "",
-            "DSYNC_NEW_VALUE_K"         : "",
-            "DSYNC_NEW_VALUE_G"         : "",
+            "DSYNC_FEATURE_COLNAME" : "",
+            "DSYNC_PARAMETERS": ["K","G"],
+            "DSYNC_FEATURE_CONDITION": "",
+            "DSYNC_PERCENT_NODES" : "",
+            "DSYNC_NEW_VALUE_K": "",
+            "DSYNC_NEW_VALUE_G": "",
 
-            "SYNC_RESET_TYPE"           : "OLD_VALUE",
-            "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_VALUE_K"        : "",
-            "SYNC_RESET_VALUE_G"        : ""
+            "SYNC_RESET_TYPE" : "OLD_VALUE",
+            "SYNC_RESET_PARAMETERS" : ["K","G"],
+            "SYNC_RESET_VALUE_K"  : "",
+            "SYNC_RESET_VALUE_G"  : ""
         },
         
 
         "KMDS,K=2,G=-8,CC=15,TOP" :{
 
 
-            "COPY_K_FROM"               : "",
-            "K"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_K_FROM" : "",
+            "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM"               : "",
-            "G"                         : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_G_FROM" : "",
+            "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM"           : "",
-            "OMEGA"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_OMEGA_FROM" : "",
+            "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM"             : "",
-            "PHI"                       : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_PHI_FROM": "",
+            "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM"           : "",
-            "NOISE"                     : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
+            "COPY_NOISE_FROM" : "",
+            "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "DSYNC_FEATURE_COLNAME"     : "ClosenessCent",
-            "DSYNC_PARAMETERS"          : ["K","G"],
-            "DSYNC_FEATURE_CONDITION"   : "",
-            "DSYNC_PERCENT_NODES"       : "",
-            "DSYNC_NEW_VALUE_K"         : "",
-            "DSYNC_NEW_VALUE_G"         : "",
+            "DSYNC_FEATURE_COLNAME" : "",
+            "DSYNC_PARAMETERS": ["K","G"],
+            "DSYNC_FEATURE_CONDITION": "",
+            "DSYNC_PERCENT_NODES" : "",
+            "DSYNC_NEW_VALUE_K": "",
+            "DSYNC_NEW_VALUE_G": "",
 
-            "SYNC_RESET_TYPE"           : "OLD_VALUE",
-            "SYNC_RESET_PARAMETERS"     : ["K","G"],
-            "SYNC_RESET_VALUE_K"        : "",
-            "SYNC_RESET_VALUE_G"        : ""
+            "SYNC_RESET_TYPE" : "OLD_VALUE",
+            "SYNC_RESET_PARAMETERS" : ["K","G"],
+            "SYNC_RESET_VALUE_K"  : "",
+            "SYNC_RESET_VALUE_G"  : ""
         }
 
     }
