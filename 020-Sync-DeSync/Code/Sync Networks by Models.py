@@ -116,7 +116,7 @@ def f_read_parameters():
         DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"]        = DP
         DICT_MODEL[model_name]["DSYNC_FEATURE_CONDITION"]    = DF
 
-        input(DICT_MODEL[model_name])
+        # input(DICT_MODEL[model_name])
 
 
 
@@ -609,7 +609,7 @@ def f_set_models_on_graphs():
                 f_create_result_xlsx(network_counter, rep, L_address_input_networks[net])
                 f_start_sync()
                 f_desync_run()
-                f_end_sync(L_address_input_networks[net])
+                # f_end_sync(L_address_input_networks[net])
                 f_update_result_xlsx()
                 network_counter += 1
 
