@@ -104,14 +104,19 @@ def f_read_parameters():
                 DICT_MODEL[model_name][parameter] = DICT_MODEL[name_from][parameter]
 
         # to set desync parameters from name of the run
-        DK = float(re.sub(".*,K=(.*),G.*"   ,"\\1",model_name))
-        DG = float(re.sub(".*,G=(.*),.*,.*" ,"\\1",model_name))
-        DC = float(re.sub(".*,.*=(.*),.*"   ,"\\1",model_name))
+        DK = float(re.sub(".*,K=(.*),G.*"           ,"\\1",model_name))
+        DG = float(re.sub(".*,G=(.*),.*,.*"         ,"\\1",model_name))
+        DC = re.sub(".*,K.*,G.*,(.*)=.*,.*"         ,"\\1",model_name)
+        DP = float(re.sub(".*,K.*,G.*,.*=(.*),.*"   ,"\\1",model_name))
+        # DC = float(re.sub(".*,.*=(.*),.*"           ,"\\1",model_name))
         DF = re.sub(".*,(.*)","\\1",model_name)
         DICT_MODEL[model_name]["DSYNC_NEW_VALUE_K"]          = DK
         DICT_MODEL[model_name]["DSYNC_NEW_VALUE_G"]          = DG
-        DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"]        = DC
+        DICT_MODEL[model_name]["DSYNC_FEATURE_COLNAME"]      = DC
+        DICT_MODEL[model_name]["DSYNC_PERCENT_NODES"]        = DP
         DICT_MODEL[model_name]["DSYNC_FEATURE_CONDITION"]    = DF
+
+        input(DICT_MODEL[model_name])
 
 
 
