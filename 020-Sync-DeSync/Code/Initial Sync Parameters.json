@@ -12,40 +12,42 @@
         "dt": 0.01,
         "STEP_NOTIF": 100,
         "ROUND_DIGITS": 4,
-        "TOTAL_REPEAT": 3,
+        "TOTAL_REPEAT": 1,
         "START_SYNC_NUM_STEPS": 1000,
-        "De_SYNC_NUM_STEPS": 1500,
+        "De_SYNC_NUM_STEPS": 2000,
         "END_SYNC_NUM_STEPS": 0
     },
 
     
     "MODELS" :{
         "FIXED_PAR":{
-            "NUM_MODELS":   "44",
-            "L_MODELS"  : [ "KMDS,K=0,G=0,DegreeCent=05,TOP"        , "KMDS,K=0,G=0,DegreeCent=20,TOP",
-                            "KMDS,K=0,G=0,InDegree=05,TOP"          , "KMDS,K=0,G=0,InDegree=20,TOP",
-                            "KMDS,K=0,G=0,OutDegree=05,TOP"         , "KMDS,K=0,G=0,OutDegree=20,TOP",
-                            "KMDS,K=0,G=0,Degree=05,TOP"            , "KMDS,K=0,G=0,Degree=20,TOP",
-                            "KMDS,K=0,G=0,WeInDegree=05,TOP"        , "KMDS,K=0,G=0,WeInDegree=20,TOP",
-                            "KMDS,K=0,G=0,WeOutDegree=05,TOP"       , "KMDS,K=0,G=0,WeOutDegree=20,TOP",
-                            "KMDS,K=0,G=0,WeDegree=05,TOP"          , "KMDS,K=0,G=0,WeDegree=20,TOP",
-                            "KMDS,K=0,G=0,AveWeInDegree=05,TOP"     , "KMDS,K=0,G=0,AveWeInDegree=20,TOP",
-                            "KMDS,K=0,G=0,AveWeOutDegree=05,TOP"    , "KMDS,K=0,G=0,AveWeOutDegree=20,TOP",
-                            "KMDS,K=0,G=0,AveWeDegree=05,TOP"       , "KMDS,K=0,G=0,AveWeDegree=20,TOP",
+            "NUM_MODELS":   "22",
+            "L_MODELS"  : [ "KMDS,K=0,G=0.3,DegreeCent=10,TOP"        ,
+                            "KMDS,K=0,G=0.3,InDegree=10,TOP"          ,
+                            "KMDS,K=0,G=0.3,OutDegree=10,TOP"         ,
+                            "KMDS,K=0,G=0.3,WeInDegree=10,TOP"        ,
+                            "KMDS,K=0,G=0.3,WeOutDegree=10,TOP"       ,
+                            "KMDS,K=0,G=0.3,WeDegree=10,TOP"          ,
+                            "KMDS,K=0,G=0.3,ClosenessCent=10,TOP"     ,
+                            "KMDS,K=0,G=0.3,WeClosenessCent=10,TOP"   ,
+                            "KMDS,K=0,G=0.3,HarmonicCent=10,TOP"      ,
+                            "KMDS,K=0,G=0.3,BetweennessCent=10,TOP"   ,
+                            "KMDS,K=0,G=0.3,WeBetweennessCent=10,TOP" ,
+                            "KMDS,K=0,G=0.3,EigenvectorCent=10,TOP"   ,
+                            "KMDS,K=0,G=0.3,WeEigenvectorCent=10,TOP" ,
+                            "KMDS,K=0,G=0.3,PageRanks=10,TOP"         ,
+                            "KMDS,K=0,G=0.3,Authority=10,TOP"         ,
+                            "KMDS,K=0,G=0.3,Hub=10,TOP"               ,
+                            "KMDS,K=0,G=0.3,Clustering=10,TOP"        ,
+                            "KMDS,K=0,G=0.3,Clustering=10,RANDOM"     ,
+                            "KMDS,K=0,G=0.3,Degree=10,TOP"            ,
+                            "KMDS,K=0,G=0.3,AveWeInDegree=10,TOP"     ,
+                            "KMDS,K=0,G=0.3,AveWeOutDegree=10,TOP"    ,
+                            "KMDS,K=0,G=0.3,AveWeDegree=10,TOP"       
 
-                            "KMDS,K=0,G=0,ClosenessCent=05,TOP"     , "KMDS,K=0,G=0,ClosenessCent=20,TOP",
-                            "KMDS,K=0,G=0,WeClosenessCent=05,TOP"   , "KMDS,K=0,G=0,WeClosenessCent=20,TOP",
-                            "KMDS,K=0,G=0,HarmonicCent=05,TOP"      , "KMDS,K=0,G=0,HarmonicCent=20,TOP",
-                            "KMDS,K=0,G=0,BetweennessCent=05,TOP"   , "KMDS,K=0,G=0,BetweennessCent=20,TOP",
-                            "KMDS,K=0,G=0,WeBetweennessCent=05,TOP" , "KMDS,K=0,G=0,WeBetweennessCent=20,TOP",
-                            "KMDS,K=0,G=0,EigenvectorCent=05,TOP"   , "KMDS,K=0,G=0,EigenvectorCent=20,TOP",
-                            "KMDS,K=0,G=0,WeEigenvectorCent=05,TOP" , "KMDS,K=0,G=0,WeEigenvectorCent=20,TOP",
-                            "KMDS,K=0,G=0,PageRanks=05,TOP"         , "KMDS,K=0,G=0,PageRanks=20,TOP",
-                            "KMDS,K=0,G=0,Authority=05,TOP"         , "KMDS,K=0,G=0,Authority=20,TOP",
-                            "KMDS,K=0,G=0,Hub=05,TOP"               , "KMDS,K=0,G=0,Hub=20,TOP",
 
-                            "KMDS,K=0,G=0,Clustering=05,TOP"        , "KMDS,K=0,G=0,Clustering=20,TOP",
-                            "KMDS,K=0,G=0,Clustering=05,RANDOM"     , "KMDS,K=0,G=0,Clustering=20,RANDOM"],
+                        
+                        ],
 
             "NAME_OF_THIS_MODEL":   "",
             "PARAMETERS"        : [ "K","G","OMEGA","PHI","NOISE"],
@@ -64,7 +66,7 @@
             "NOISE" :{"TYPE":"NORMAL_RANDOM"   ,"MEAN":"3","STD":"0.5"  ,"MIN":""     ,"MAX":""     ,"VALUE":""    ,"ALPHA":"0.99","STEP":"300"  ,"SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""}
         },
 
-        "KMDS,K=0,G=0,DegreeCent=05,TOP" :{
+        "KMDS,K=0,G=0.3,DegreeCent=10,TOP" :{
 
             "COPY_K_FROM" : "FIXED_PAR",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
@@ -94,22 +96,22 @@
             "SYNC_RESET_VALUE_G"  : ""
         },
 
-        "KMDS,K=0,G=0,DegreeCent=20,TOP" :{
+        "KMDS,K=0,G=0.3,DegreeCent=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -125,22 +127,22 @@
             "SYNC_RESET_VALUE_G"  : ""
         },
 
-        "KMDS,K=0,G=0,InDegree=05,TOP" :{
+        "KMDS,K=0,G=0.3,InDegree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -155,22 +157,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,InDegree=20,TOP" :{
+        "KMDS,K=0,G=0.3,InDegree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -185,22 +187,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,OutDegree=05,TOP" :{
+        "KMDS,K=0,G=0.3,OutDegree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -215,22 +217,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,OutDegree=20,TOP" :{
+        "KMDS,K=0,G=0.3,OutDegree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -245,22 +247,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,Degree=05,TOP" :{
+        "KMDS,K=0,G=0.3,Degree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -275,22 +277,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,Degree=20,TOP" :{
+        "KMDS,K=0,G=0.3,Degree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -305,22 +307,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,WeInDegree=05,TOP" :{
+        "KMDS,K=0,G=0.3,WeInDegree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -335,22 +337,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,WeInDegree=20,TOP" :{
+        "KMDS,K=0,G=0.3,WeInDegree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -365,22 +367,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,WeOutDegree=05,TOP" :{
+        "KMDS,K=0,G=0.3,WeOutDegree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -395,22 +397,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,WeOutDegree=20,TOP" :{
+        "KMDS,K=0,G=0.3,WeOutDegree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -425,22 +427,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,WeDegree=05,TOP" :{
+        "KMDS,K=0,G=0.3,WeDegree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -455,22 +457,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,WeDegree=20,TOP" :{
+        "KMDS,K=0,G=0.3,WeDegree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -485,22 +487,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,AveWeInDegree=05,TOP" :{
+        "KMDS,K=0,G=0.3,AveWeInDegree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -515,22 +517,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,AveWeInDegree=20,TOP" :{
+        "KMDS,K=0,G=0.3,AveWeInDegree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -545,22 +547,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,AveWeOutDegree=05,TOP" :{
+        "KMDS,K=0,G=0.3,AveWeOutDegree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -575,22 +577,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,AveWeOutDegree=20,TOP" :{
+        "KMDS,K=0,G=0.3,AveWeOutDegree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -605,22 +607,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,AveWeDegree=05,TOP" :{
+        "KMDS,K=0,G=0.3,AveWeDegree=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -635,22 +637,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,AveWeDegree=20,TOP" :{
+        "KMDS,K=0,G=0.3,AveWeDegree=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -665,22 +667,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,ClosenessCent=05,TOP" :{
+        "KMDS,K=0,G=0.3,ClosenessCent=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -695,22 +697,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,ClosenessCent=20,TOP" :{
+        "KMDS,K=0,G=0.3,ClosenessCent=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -725,22 +727,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,WeClosenessCent=05,TOP" :{
+        "KMDS,K=0,G=0.3,WeClosenessCent=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -755,22 +757,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,WeClosenessCent=20,TOP" :{
+        "KMDS,K=0,G=0.3,WeClosenessCent=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -785,22 +787,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,HarmonicCent=05,TOP" :{
+        "KMDS,K=0,G=0.3,HarmonicCent=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -815,22 +817,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,HarmonicCent=20,TOP" :{
+        "KMDS,K=0,G=0.3,HarmonicCent=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -846,22 +848,22 @@
             "SYNC_RESET_VALUE_G"  : ""
         }, 
 
-        "KMDS,K=0,G=0,BetweennessCent=05,TOP" :{
+        "KMDS,K=0,G=0.3,BetweennessCent=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -876,22 +878,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,BetweennessCent=20,TOP" :{
+        "KMDS,K=0,G=0.3,BetweennessCent=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -906,22 +908,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,WeBetweennessCent=05,TOP" :{
+        "KMDS,K=0,G=0.3,WeBetweennessCent=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -936,22 +938,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,WeBetweennessCent=20,TOP" :{
+        "KMDS,K=0,G=0.3,WeBetweennessCent=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -966,22 +968,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,EigenvectorCent=05,TOP" :{
+        "KMDS,K=0,G=0.3,EigenvectorCent=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -996,22 +998,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,EigenvectorCent=20,TOP" :{
+        "KMDS,K=0,G=0.3,EigenvectorCent=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1026,22 +1028,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,WeEigenvectorCent=05,TOP" :{
+        "KMDS,K=0,G=0.3,WeEigenvectorCent=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1056,22 +1058,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,WeEigenvectorCent=20,TOP" :{
+        "KMDS,K=0,G=0.3,WeEigenvectorCent=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1086,22 +1088,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,PageRanks=05,TOP" :{
+        "KMDS,K=0,G=0.3,PageRanks=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1116,22 +1118,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,PageRanks=20,TOP" :{
+        "KMDS,K=0,G=0.3,PageRanks=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1146,22 +1148,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,Authority=05,TOP" :{
+        "KMDS,K=0,G=0.3,Authority=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1176,22 +1178,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,Authority=20,TOP" :{
+        "KMDS,K=0,G=0.3,Authority=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1206,22 +1208,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,Hub=05,TOP" :{
+        "KMDS,K=0,G=0.3,Hub=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1236,22 +1238,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,Hub=20,TOP" :{
+        "KMDS,K=0,G=0.3,Hub=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1266,22 +1268,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,Clustering=05,TOP" :{
+        "KMDS,K=0,G=0.3,Clustering=10,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1296,22 +1298,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,Clustering=20,TOP" :{
+        "KMDS,K=0,G=0.3,Clustering=20,TOP" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1326,22 +1328,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         }, 
-        "KMDS,K=0,G=0,Clustering=05,RANDOM" :{
+        "KMDS,K=0,G=0.3,Clustering=10,RANDOM" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
@@ -1356,22 +1358,22 @@
             "SYNC_RESET_VALUE_K"  : "",
             "SYNC_RESET_VALUE_G"  : ""
         },
-        "KMDS,K=0,G=0,Clustering=20,RANDOM" :{
+        "KMDS,K=0,G=0.3,Clustering=20,RANDOM" :{
 
 
-            "COPY_K_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_K_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "K": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_G_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_G_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "G": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_OMEGA_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "OMEGA"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
-            "COPY_PHI_FROM": "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_PHI_FROM": "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "PHI": {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
             
-            "COPY_NOISE_FROM" : "KMDS,K=0,G=0,DegreeCent=05,TOP",
+            "COPY_NOISE_FROM" : "KMDS,K=0,G=0.3,DegreeCent=10,TOP",
             "NOISE"  : {"TYPE":"","MEAN":"","STD":"","MIN":"","MAX":"","VALUE":"","ALPHA":"","STEP":"","SHEET":"","COL_MAME":"","SCALE_TYPE":"","SCALE_VALUE":""},
 
             "DSYNC_FEATURE_COLNAME" : "",
