@@ -342,13 +342,21 @@ def f_create_result_xlsx(net_number, rep, address_net):
 
     #To Create a suitable name for new xlsx file
     repeat = 'Rep{:0{}}'.format(rep+1, 2)
-    network_number = 'Net{:0{}}'.format(net_number, 2)
+    # network_number = 'Net{:0{}}'.format(net_number, 2)
+    # x = address_net.split('.')[4]
+    network_number = f'{address_net.split('.')[0]}'
+    # network_number = f'Net{address_net.split('-')[1]}{address_net.split('-')[2]}{x.split('.')[0]}'
+    # network_number = f'Net{net_number:0{2}}{address_net.split('-')[2]}'
+
     list_result_xlsx_path = []
     
     for m in range(NUM_MODELS):
         model_name = LIST_MODELS[m]
         
-        path = DEST_DIR + f"\\{address_net.split('-')[2]}-{model_name}-{repeat}-{TIME_ID}.xlsx"
+        # path = DEST_DIR + f"\\{address_net.split('-')[0:2]}{address_net.split('-')[2]}-{model_name}-{repeat}-{TIME_ID}.xlsx"
+        path = DEST_DIR + f"\\{network_number}-{model_name}-{repeat}-{TIME_ID}.xlsx"
+
+        # input(address_net.split('-'))
         # path = DEST_DIR + f"\\{repeat}-{network_number}-{model_name}-{DICT_MODEL[model_name]['NOTE']}-{address_net.split('-')[2]}-{TIME_ID}.xlsx"
         list_result_xlsx_path.append(path)
         
@@ -496,7 +504,7 @@ def f_start_sync():
             #if(NAMES_MODELS[n] == "Kuramoto"):
             f_k_models_op_sync(n, su)
     
-    # print("")
+    print("")
         
 
 def f_desync_run():
