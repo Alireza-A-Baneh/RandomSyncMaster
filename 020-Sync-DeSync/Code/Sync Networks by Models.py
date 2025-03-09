@@ -7,7 +7,10 @@ import json
 import os
 import re
 import random
-
+a = [2,4,6,8]
+b = [100,200,300,400,500,600,700,800,900]
+print(f"a:{a}\nb:{b}\nb[a]: {[b[i] for i in a]}\n\n")
+input()
 
 global START_TIME, TIME_ID
 global CODE_DIR, NET_DIR, DEST_DIR
@@ -16,7 +19,9 @@ global DICT_MODEL, DICT_NETWORKSglobal, list_result_xlsx_path, list_dict_phi
 global DF_GRAPH, NUM_NODES
 global NUM_MODELS, NAMES_MODELS, PARAMETERS, COPY_PARAMETER_FROM
 global arr_models_omega, arr_models_phi, arr_models_ampli
-global arr_models_op_coherence, arr_models_op_phase
+global arr_models_op_coherence_all_nodes, arr_models_op_phase_all_nodes
+global arr_models_op_coherence_other_nodes, arr_models_op_phase_other_nodes
+global arr_models_op_coherence_selected_nodes, arr_models_op_phase_selected_nodes
 global index_sheet
 
 
@@ -219,13 +224,33 @@ def arr_type(copy_from, the_type, model_name, case, address_net):
     
 
 def f_k_models_op_sync(model, step):
-    global arr_models_op_coherence, arr_models_op_phase
+    global arr_models_op_coherence_all_nodes, arr_models_op_phase_all_nodes
+    global arr_models_op_coherence_other_nodes, arr_models_op_phase_other_nodes
+    global arr_models_op_coherence_selected_nodes, arr_models_op_phase_selected_nodes
+
     
+    list_phi_selected_nodes = [arr_models_phi[model,i] for i in list_list_features_nodes]
+    list_phi_other_nodes    = [arr_models_phi[model,j] for j in range(len(arr_models_phi[model,:])) if j not in set(list_list_features_nodes)]
+
+
     parameter_real = sum(np.cos(arr_models_phi[model,:])) / NUM_NODES
     parameter_img = sum(np.sin(arr_models_phi[model,:])) / NUM_NODES
 
-    arr_models_op_phase[model, step] = np.arctan2(parameter_img, parameter_real) % (2 * np.pi)
-    arr_models_op_coherence[model, step] = np.sqrt(parameter_real**2 + parameter_img**2)
+    real_selected_nodes = sum(np.cos(list_phi_selected_nodes)) / len(list_phi_selected_nodes)
+    img_selected_nodes = sum(np.cos(list_phi_selected_nodes)) / len(list_phi_selected_nodes)
+    
+    real_other_nodes = sum(np.cos(list_phi_other_nodes)) / len(list_phi_other_nodes)
+    img_other_nodes = sum(np.cos(list_phi_other_nodes)) / len(list_phi_other_nodes)
+
+    arr_models_op_phase_all_nodes[model, step]              = np.arctan2(parameter_img, parameter_real) % (2 * np.pi)
+    arr_models_op_coherence_all_nodes[model, step]          = np.sqrt(parameter_real**2 + parameter_img**2)
+
+    arr_models_op_coherence_other_nodes[model, step]        = np.arctan2(img_other_nodes, real_other_nodes) % (2 * np.pi)
+    arr_models_op_phase_other_nodes[model, step]            = np.sqrt(real_other_nodes**2 + img_other_nodes**2)
+
+    arr_models_op_coherence_selected_nodes[model, step]    = np.arctan2(img_selected_nodes, real_selected_nodes) % (2 * np.pi)
+    arr_models_op_phase_selected_nodes[model, step]        = np.sqrt(real_selected_nodes**2 + img_selected_nodes**2)
+
 
 
 def f_initialize_models(address_net):
@@ -233,7 +258,10 @@ def f_initialize_models(address_net):
     global list_dict_phi, list_dict_noise
     global arr_models_k, arr_models_g, arr_models_omega, arr_models_phi
     global arr_models_ampli, arr_models_noise, temp_arr_phi
-    global arr_models_op_phase, arr_models_op_coherence
+    global arr_models_op_phase_all_nodes, arr_models_op_coherence_all_nodes
+    global arr_models_op_coherence_other_nodes, arr_models_op_phase_other_nodes
+    global arr_models_op_coherence_selected_nodes, arr_models_op_phase_selected_nodes
+
 
     list_dict_phi           = []
     list_dict_noise         = []
@@ -244,8 +272,13 @@ def f_initialize_models(address_net):
     arr_models_ampli        = np.zeros((NUM_MODELS, NUM_NODES))
     arr_models_noise        = np.zeros((NUM_MODELS, NUM_NODES))
     temp_arr_phi            = np.zeros((NUM_MODELS, NUM_NODES))
-    arr_models_op_phase     = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
-    arr_models_op_coherence = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
+
+    arr_models_op_phase_all_nodes           = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
+    arr_models_op_coherence_all_nodes       = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
+    arr_models_op_phase_other_nodes         = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
+    arr_models_op_coherence_other_nodes     = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
+    arr_models_op_phase_selected_nodes      = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
+    arr_models_op_coherence_selected_nodes  = np.zeros((NUM_MODELS, NUM_TOTAL_STEPS))
 
 
 
@@ -427,12 +460,23 @@ def f_update_result_xlsx():
 
         df_noise = pd.concat([df_step, df_noise], ignore_index=True)
         
-        df_op_phase = pd.DataFrame(arr_models_op_phase[m,])
-        df_op_coherence = pd.DataFrame(arr_models_op_coherence[m,])
+        df_op_phase_all_nodes = pd.DataFrame(arr_models_op_phase_all_nodes[m,])
+        df_op_coherence_all_nodes = pd.DataFrame(arr_models_op_coherence_all_nodes[m,])
+        df_op_phase_other_nodes = pd.DataFrame(arr_models_op_phase_other_nodes[m,])
+        df_op_coherence_other_nodes = pd.DataFrame(arr_models_op_coherence_other_nodes[m,])
+        df_op_phase_selected_nodes = pd.DataFrame(arr_models_op_phase_selected_nodes[m,])
+        df_op_coherence_selected_nodes = pd.DataFrame(arr_models_op_coherence_selected_nodes[m,])
+
         df_order_parameter = pd.DataFrame()
-        df_order_parameter["Time"] = df_time.columns.T
-        df_order_parameter["Phase"] = df_op_phase
-        df_order_parameter["Coherence"] = df_op_coherence
+        df_order_parameter["Time"]                      = df_time.columns.T
+        df_order_parameter["PhaseAllNodes"]             = df_op_phase_all_nodes
+        df_order_parameter["CoherenceAllNodes"]         = df_op_coherence_all_nodes
+
+        df_order_parameter["PhaseOtherNodes"]           = df_op_phase_other_nodes
+        df_order_parameter["CoherenceOtherNodes"]       = df_op_coherence_other_nodes
+
+        df_order_parameter["PhaseSelectedNodes"]        = df_op_phase_selected_nodes
+        df_order_parameter["CoherenceSelectedNodes"]    = df_op_coherence_selected_nodes
 
         with pd.ExcelWriter(list_result_xlsx_path[m], mode = "a", engine = "openpyxl") as writer:
             df_noise.to_excel(writer, sheet_name= "Noise", index = False)
@@ -536,7 +580,7 @@ def f_desync_run():
         #     if (par_case == "PHI"):
         #         for manip_node in list_list_features_nodes[m]:
 
-        #             arr_models_phi[m, manip_node] += ((arr_models_op_coherence[m, (dsu-1)] + np.pi) % (2 * np.pi))
+        #             arr_models_phi[m, manip_node] += ((arr_models_op_coherence_all_nodess[m, (dsu-1)] + np.pi) % (2 * np.pi))
 
             
             
