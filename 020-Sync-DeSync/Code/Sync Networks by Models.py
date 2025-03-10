@@ -7,10 +7,7 @@ import json
 import os
 import re
 import random
-a = [2,4,6,8]
-b = [100,200,300,400,500,600,700,800,900]
-print(f"a:{a}\nb:{b}\nb[a]: {[b[i] for i in a]}\n\n")
-input()
+
 
 global START_TIME, TIME_ID
 global CODE_DIR, NET_DIR, DEST_DIR
