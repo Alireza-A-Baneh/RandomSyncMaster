@@ -16,10 +16,11 @@ global DICT_MODEL, DICT_NETWORKSglobal, list_result_xlsx_path, list_dict_phi
 global DF_GRAPH, NUM_NODES
 global NUM_MODELS, NAMES_MODELS, PARAMETERS, COPY_PARAMETER_FROM
 global arr_models_omega, arr_models_phi, arr_models_ampli
-global arr_models_op_coherence_all_nodes, arr_models_op_phase_all_nodes
+global arr_models_op_coherence_all_nodes, arr_models_op_phase_all_nodes, list_list_features_nodes
 global arr_models_op_coherence_other_nodes, arr_models_op_phase_other_nodes
 global arr_models_op_coherence_selected_nodes, arr_models_op_phase_selected_nodes
 global index_sheet
+
 
 
 def f_sync_newfolder():
@@ -225,28 +226,30 @@ def f_k_models_op_sync(model, step):
     global arr_models_op_coherence_other_nodes, arr_models_op_phase_other_nodes
     global arr_models_op_coherence_selected_nodes, arr_models_op_phase_selected_nodes
 
+    # input(model)
+    # input(list_list_features_nodes[0])
     
-    list_phi_selected_nodes = [arr_models_phi[model,i] for i in list_list_features_nodes]
-    list_phi_other_nodes    = [arr_models_phi[model,j] for j in range(len(arr_models_phi[model,:])) if j not in set(list_list_features_nodes)]
-
+    list_phi_selected_nodes = [arr_models_phi[model,s_phi] for s_phi in list_list_features_nodes[model]]
+    list_phi_other_nodes    = [arr_models_phi[model,o_phi] for o_phi in range(len(arr_models_phi[model])) if o_phi not in set(list_list_features_nodes[model])]
 
     parameter_real = sum(np.cos(arr_models_phi[model,:])) / NUM_NODES
     parameter_img = sum(np.sin(arr_models_phi[model,:])) / NUM_NODES
 
-    real_selected_nodes = sum(np.cos(list_phi_selected_nodes)) / len(list_phi_selected_nodes)
-    img_selected_nodes = sum(np.cos(list_phi_selected_nodes)) / len(list_phi_selected_nodes)
+    # max(1,...) Because at the very moment it would divided by 0
+    real_selected_nodes = sum(np.cos(list_phi_selected_nodes)) / max(1,len(list_phi_selected_nodes))
+    img_selected_nodes = sum(np.sin(list_phi_selected_nodes)) / max(1,len(list_phi_selected_nodes))
     
     real_other_nodes = sum(np.cos(list_phi_other_nodes)) / len(list_phi_other_nodes)
-    img_other_nodes = sum(np.cos(list_phi_other_nodes)) / len(list_phi_other_nodes)
+    img_other_nodes = sum(np.sin(list_phi_other_nodes)) / len(list_phi_other_nodes)
 
     arr_models_op_phase_all_nodes[model, step]              = np.arctan2(parameter_img, parameter_real) % (2 * np.pi)
     arr_models_op_coherence_all_nodes[model, step]          = np.sqrt(parameter_real**2 + parameter_img**2)
 
-    arr_models_op_coherence_other_nodes[model, step]        = np.arctan2(img_other_nodes, real_other_nodes) % (2 * np.pi)
-    arr_models_op_phase_other_nodes[model, step]            = np.sqrt(real_other_nodes**2 + img_other_nodes**2)
+    arr_models_op_phase_other_nodes[model, step]            = np.arctan2(img_other_nodes, real_other_nodes) % (2 * np.pi)
+    arr_models_op_coherence_other_nodes[model, step]        = np.sqrt(real_other_nodes**2 + img_other_nodes**2)
 
-    arr_models_op_coherence_selected_nodes[model, step]    = np.arctan2(img_selected_nodes, real_selected_nodes) % (2 * np.pi)
-    arr_models_op_phase_selected_nodes[model, step]        = np.sqrt(real_selected_nodes**2 + img_selected_nodes**2)
+    arr_models_op_phase_selected_nodes[model, step]         = np.arctan2(img_selected_nodes, real_selected_nodes) % (2 * np.pi)
+    arr_models_op_coherence_selected_nodes[model, step]     = np.sqrt(real_selected_nodes**2 + img_selected_nodes**2)
 
 
 
@@ -288,9 +291,6 @@ def f_initialize_models(address_net):
         #     if(DICT_MODEL[model_name][name_copy] in LIST_MODELS):
         #         pass
 
-
-
-
         copy_k_from      = DICT_MODEL[model_name]["COPY_K_FROM"]
         copy_g_from      = DICT_MODEL[model_name]["COPY_G_FROM"]
         copy_omega_from  = DICT_MODEL[model_name]["COPY_OMEGA_FROM"]
@@ -319,9 +319,8 @@ def f_initialize_models(address_net):
 
         #To save the phi of staep 0 (Noise should be saved from step 1!)
         list_dict_phi[m]["0"]   = arr_models_phi[m,:].copy()
-        
-        # To calculate the ort\der parameter of step 0!
-        f_k_models_op_sync(m, 0)
+
+
 
 
 
@@ -359,7 +358,11 @@ def f_select_feature(g_name):
             nodes = np.random.randint(0,NUM_NODES,(num_nodes_to_change))
 
         list_Models_features.append(feature_name)
+        # nodes = list(nodes)
+        # input(nodes)
         list_list_features_nodes.append(nodes)
+        # To calculate the ort\der parameter of step 0!
+        f_k_models_op_sync(m, 0)
 
 
 
