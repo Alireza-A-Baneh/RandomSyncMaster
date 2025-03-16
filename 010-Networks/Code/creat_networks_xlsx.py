@@ -91,7 +91,7 @@ def f_graph_weight(w_type, w_const, w_min, w_max, num_edges):
 
     elif(w_type == "CONSTANT"):
         arr_weight = arr_weight + w_const
-        print(arr_weight)
+        # print(arr_weight)
 
     arr_weight = np.array(list(map(int, arr_weight)))
 
